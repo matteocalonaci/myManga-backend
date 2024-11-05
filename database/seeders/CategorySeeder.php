@@ -14,23 +14,45 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            [
-                'name' => 'cronaca',
-                'description' => 'articoli che riguardano fatti di cronaca',
-            ],
-            [
-                'name' => 'tecnologia',
-                'description' => 'troverai le più recenti novità in ambito hi-tech',
-            ],
-            [
-                'name' => 'sport',
-                'description' => 'non guardo il calcio',
-            ]
+            'Shonen',
+            'Shojo',
+            'Seinen',
+            'Josei',
+            'Kodomo',
+            'Manhwa',
+            'Manhua',
+            'Isekai',
+            'Slice of Life',
+            'Fantasy',
+            'Action',
+            'Romance',
+            'Horror',
+            'Mystery',
+            'Adventure',
+            'Comedy',
+            'Supernatural',
+            'Historical',
+            'Sports',
+            'Mecha',
+            'Magical Girl',
+            'Yuri',
+            'Yaoi',
+            'Harem',
+            'Reverse Harem',
+            'Psychological',
+            'Dystopian',
+            'Post-Apocalyptic',
+            'Cyberpunk',
+            'Gourmet',
+            'Music',
+            'Game',
+            'School Life',
+            'Martial Arts',
         ];
 
-        foreach ($categories as $category) {
+        foreach ($categories as $categoryName) {
             $newCategory = new Category();
-            $newCategory->fill($category);
+            $newCategory->name = $categoryName;
             $newCategory->save();
         }
     }
