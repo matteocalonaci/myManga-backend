@@ -10,6 +10,6 @@ class Genre extends Model
     use HasFactory;
 
     public function mangas(){
-        return $this->belongsToMany(Manga::class);
+        return $this->belongsToMany(Manga::class, 'manga_genre');
     }
 }

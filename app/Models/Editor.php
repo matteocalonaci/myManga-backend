@@ -11,8 +11,8 @@ class Editor extends Model
 
     protected $fillable = ['nome'];
 
-    public function manga()
+    public function mangas()
     {
-        return $this->hasMany(Manga::class);
+        return $this->hasMany(Manga::class, 'editor_id');
     }
 }

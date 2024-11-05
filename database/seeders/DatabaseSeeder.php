@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Editor;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,9 +15,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            AuthorSeeder::class,
             GenreSeeder::class,
+            CategorySeeder::class,
+            EditorSeeder::class,
             MangaSeeder::class,
-            CategorySeeder::class
             // OrderSeeder::class, //  seeder per gli ordini
         ]);
     }

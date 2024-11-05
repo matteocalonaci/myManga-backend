@@ -9,6 +9,6 @@ class Category extends Model
 {
     use HasFactory;
     public function mangas(){
-        return $this->belongsToMany(Manga::class);
+        return $this->hasMany(Manga::class, 'category_id');
     }
 }

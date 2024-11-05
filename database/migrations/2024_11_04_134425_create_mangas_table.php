@@ -14,13 +14,17 @@ return new class extends Migration
         Schema::create('mangas', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('author');
             $table->text('description');
             $table->string('cover_image');
+            $table->string('volume');
             $table->decimal('price', 8, 2);
             $table->boolean('availability')->default(true);
             $table->year('year');
+            $table->boolean('in_progress')->default(true);;
             $table->string('slug')->nullable();
+            $table->foreignId('category_id')->constrained();
+            $table->foreignId('editor_id')->constrained();
+            $table->foreignId('author_id')->constrained();
             $table->timestamps();
         });
     }
