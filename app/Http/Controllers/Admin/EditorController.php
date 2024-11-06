@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Author;
+use App\Http\Controllers\Controller;
+use App\Models\Editor;
 use Illuminate\Http\Request;
 
-class AuthorController extends Controller
+class EditorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class AuthorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Author $author)
+    public function show(Editor $editor)
     {
         //
     }
@@ -42,7 +43,7 @@ class AuthorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Author $author)
+    public function edit(Editor $editor)
     {
         //
     }
@@ -50,7 +51,7 @@ class AuthorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Author $author)
+    public function update(Request $request, Editor $editor)
     {
         //
     }
@@ -58,7 +59,7 @@ class AuthorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Author $author)
+    public function destroy(Editor $editor)
     {
         //
     }

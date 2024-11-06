@@ -1,12 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Manga;
+use App\Http\Controllers\Controller;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
-class MangaController extends Controller
+class GenreController extends Controller
 {
+
+    public function searchGenre(Request $request)
+    {
+        $searchTerm = $request->get('q');
+        $genres = Genre::where('name', 'LIKE', "%{$searchTerm}%")->get();
+
+        return response()->json($genres);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -34,7 +43,7 @@ class MangaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Manga $manga)
+    public function show(Genre $genre)
     {
         //
     }
@@ -42,7 +51,7 @@ class MangaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Manga $manga)
+    public function edit(Genre $genre)
     {
         //
     }
@@ -50,7 +59,7 @@ class MangaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Manga $manga)
+    public function update(Request $request, Genre $genre)
     {
         //
     }
@@ -58,7 +67,7 @@ class MangaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Manga $manga)
+    public function destroy(Genre $genre)
     {
         //
     }
