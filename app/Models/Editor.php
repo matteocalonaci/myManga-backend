@@ -9,7 +9,9 @@ class Editor extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome'];
+    protected $fillable = ['name', 'other_columns'];
+
+    protected $table = 'editors';
 
     public function mangas()
     {

@@ -20,11 +20,11 @@ return new class extends Migration
             $table->decimal('price', 8, 2);
             $table->boolean('availability')->default(true);
             $table->year('year');
-            $table->boolean('in_progress')->default(true);;
+            $table->boolean('in_progress');
             $table->string('slug')->nullable();
-            $table->foreignId('category_id')->constrained();
-            $table->foreignId('editor_id')->constrained();
-            $table->foreignId('author_id')->constrained();
+            $table->foreignId('author_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('editor_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

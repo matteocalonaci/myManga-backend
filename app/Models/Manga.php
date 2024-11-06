@@ -9,21 +9,21 @@ class Manga extends Model
 {
     protected $fillable = [
         'title',
-        'description',
         'cover_image',
+        'description',
         'price',
-        'availibility',
+        'availability',
+        'volume',
         'year',
         'in_progress',
-        'slug',
-        'editor_id',
-        'category_id',
         'author_id',
+        'category_id',
+        'editor_id',
     ];
 
     use HasFactory;
     // La relazione esistente con Genre
-    public function genre()
+    public function genres()
     {
         return $this->belongsToMany(Genre::class, 'manga_genre');
     }

@@ -9,10 +9,9 @@ class Author extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'other_columns']; // Aggiungi qui le colonne necessarie
+    protected $fillable = ['name', 'other_columns'];
 
-    // Se hai specificato una tabella diversa, assicurati di definirla
-    protected $table = 'authors'; // Cambia 'authors' con il nome della tua tabella se necessario
+    protected $table = 'authors';
 
     public function mangas()
     {

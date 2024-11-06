@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class EditorController extends Controller
 {
+    public function searchEditors(Request $request)
+    {
+        $searchTerm = $request->get('q');
+        $editors = Editor::where('name', 'LIKE', "%{$searchTerm}%")->get();
+
+        return response()->json($editors);
+    }
     /**
      * Display a listing of the resource.
      */
