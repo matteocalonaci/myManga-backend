@@ -101,12 +101,10 @@ class MangaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Manga $manga)
+    public function show($id)
     {
-    $data = [
-        'manga' => $manga,
-    ];
-    return view('admin.mangas.show', $data);
+        $manga = Manga::with(['authors', 'editors', 'categories', 'genres'])->findOrFail($id);
+        return view('admin.mangas.show', compact('manga'));
     }
 
     /**

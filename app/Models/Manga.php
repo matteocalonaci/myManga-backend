@@ -30,17 +30,17 @@ class Manga extends Model
 
     public function categories()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function editors()
     {
-        return $this->belongsTo(Editor::class);
+        return $this->belongsTo(Editor::class, 'editor_id');
     }
 
     public function authors()
     {
-        return $this->belongsTo(Author::class);
+        return $this->belongsTo(Author::class, 'author_id');
     }
 
 }
