@@ -24,10 +24,10 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" style="background-color: rgb(250, 0, 83)">
 
 
-        <nav style="background-color: rgb(248, 0, 66)" class="navbar navbar-expand-md navbar-light  shadow-sm">
+        <nav style="background-color: rgb(235, 0, 78)" class="navbar navbar-expand-md navbar-light  shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel">

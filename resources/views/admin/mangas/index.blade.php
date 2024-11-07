@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="background-color: rgb(250, 0, 83)">
         <h1 class="text-center p-4">Catalogo Manga</h1>
         <div class="table-responsive p-4">
-            @if (count($mangas) > 0)
+            @if ($mangas->count() > 0)
                 <table class="table table-sm table-striped table-bordered">
                     <thead>
                         <tr>
@@ -26,13 +26,9 @@
                                 </td>
                                 <td data-label="Nome">{{ $manga->title }}</td>
                                 <td data-label="Prezzo">€{{ $manga->price }}</td>
-                                {{-- <td data-label="Ingredienti">{!! preg_replace('/\n{2,}/', '</p><p>', nl2br(e(Str::limit($manga->ingredient, 100, ' [Read more]')))) !!}</td> --}}
                                 <td data-label="Azioni">
                                     <div class="d-flex justify-content-around">
-
                                         <a href="{{ route('admin.mangas.edit', $manga->id) }}" class="btn btn-warning btn-sm" style="height: 2rem;">Modifica</a>
-                                        {{-- <a href="{{ route('admin.mangas.show', $manga->id) }}" class="btn btn-primary btn-sm m-1">Dettagli</a> --}}
-
                                         <form action="{{ route('admin.mangas.destroy', $manga->id) }}" method="POST" class="d-inline"
                                             onsubmit="event.preventDefault(); Swal.fire({
                                                 title: 'Elimina il manga?',
@@ -50,12 +46,26 @@
                                           @method('DELETE')
                                           <button type="submit" class="btn btn-danger btn-sm">Elimina</button>
                                       </form>
-                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+
+                <!-- Controlli di paginazione -->
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <div class="px-5">
+                            Mostra
+                            <strong>{{ $mangas->firstItem() }}</strong> a
+                            <strong>{{ $mangas->lastItem() }}</strong> di
+                            <strong>{{ $mangas->total() }}</strong> risultati
+                        </div>
+                        <div>
+                            {{ $mangas->links('vendor.pagination.bootstrap-4') }} <!-- Specifica il tema Bootstrap -->
+                        </div>
+                    </div>
             @else
                 <p class="text-center">Il menù attualmente è vuoto.</p>
             @endif
@@ -68,19 +78,18 @@
 
 <style scoped>
     @media (max-width: 425px) {
-
         .table-responsive {
-        width: 100vw; /* make the container full-screen width */
-        height: 100vh; /* make the container full-screen height */
-        display: flex;
-        justify-content: center;
-        align-items: center; /* center the cards vertically and horizontally */
-    }
+            width: 100vw; /* make the container full-screen width */
+            height: 100vh; /* make the container full-screen height */
+            display: flex;
+            justify-content: center;
+            align-items: center; /* center the cards vertically and horizontally */
+        }
 
-    .table-sm {
-        width: 80%; /* adjust the width of the card to your liking */
-        margin: 0 auto; /* center the card horizontally */
-    }
+        .table-sm {
+            width: 80%; /* adjust the width of the card to your liking */
+            margin: 0 auto; /* center the card horizontally */
+        }
         .table-sm thead {
             display: none;
         }
@@ -101,17 +110,8 @@
             font-weight: bold;
             margin-right: 10px;
         }
-        .table-sm tr:not(:last-child) {
-            margin-bottom: 30px;
-        }
-        .table-sm td img {
-            width: 50%;
-            height: auto;
-            margin: 10px auto;
-            display: block;
-        }
-        .table-sm td p {
-            margin-bottom: 10px;
+        .table-sm tr:not (:last-child) {
+            margin-bottom: 20px;
         }
     }
 </style>

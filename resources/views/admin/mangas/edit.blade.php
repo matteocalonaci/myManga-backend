@@ -156,7 +156,7 @@
 
                     <div class="mt-3" style="color: gray">I campi contenenti <b style="color: black">*</b> sono obbligatori </div>
 
-                    <button type="submit" id="submit" class="btn btn-primary mt-3">Aggiorna Manga</button>
+                    <button type="submit" id="submit" class="btn btn-primary mt-3 mb-5">Aggiorna Manga</button>
                 </form>
             </div>
         </div>
