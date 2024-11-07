@@ -20,13 +20,14 @@ class MangaController extends Controller
      */
     public function index()
     {
-       $mangas = Manga::all();
-       $data = [
-        'mangas' => $mangas,
-       ];
-       return view('admin.mangas.index', $data);
-    }
+        $mangas = Manga::paginate(5);
 
+        $data = [
+            'mangas' => $mangas,
+        ];
+
+        return view('admin.mangas.index', $data);
+    }
     /**
      * Show the form for creating a new resource.
      */
