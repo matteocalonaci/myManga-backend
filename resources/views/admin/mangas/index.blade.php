@@ -3,6 +3,19 @@
 @section('content')
     <div class="container" style="background-color: rgb(250, 0, 83)">
         <h1 class="text-center p-4">Catalogo Manga</h1>
+
+
+         <!-- Campo di ricerca -->
+         <div class="mb-1 mt-2 d-flex justify-content-end mx-4">
+            <form method="GET" action="{{ route('admin.mangas.index') }}" style="width: 30rem;">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control" placeholder="Cerca un manga..." value="{{ request('search') }}">
+                    <button class="btn btn-outline-secondary" style="background-color: white; color:black " type="submit">Cerca</button>
+                </div>
+            </form>
+        </div>
+
+
         <div class="table-responsive p-4">
             @if ($mangas->count() > 0)
                 <table class="table table-sm table-striped table-bordered">
@@ -14,7 +27,7 @@
                             <th>Azioni</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="mangaTableBody">
                         @foreach ($mangas as $manga)
                             <tr>
                                 <td data-label="Immagini">
@@ -112,6 +125,15 @@
         }
         .table-sm tr:not (:last-child) {
             margin-bottom: 20px;
+
         }
     }
+    .table-responsive {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+
 </style>

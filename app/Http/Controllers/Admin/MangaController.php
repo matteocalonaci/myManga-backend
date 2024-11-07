@@ -18,9 +18,18 @@ class MangaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $mangas = Manga::paginate(5);
+        // Inizializza la query
+        $query = Manga::query();
+
+        // Aggiungi la logica di ricerca
+        if ($request->has('search') && $request->search != '') {
+            $query->where('title', 'like', '%' . $request->search . '%');
+        }
+
+        // Recupera i manga paginati
+        $mangas = $query->paginate(5);
 
         $data = [
             'mangas' => $mangas,
