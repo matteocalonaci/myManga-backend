@@ -27,7 +27,7 @@
     <div id="app" style="background-color: rgb(250, 0, 83)">
 
 
-        <nav style="background-color: rgb(235, 0, 78); height: 6rem" class="navbar navbar-expand-md navbar-light  shadow-sm">
+        <nav style="background-color:  rgb(198, 23, 81) "; height: 6rem" class="navbar navbar-expand-md navbar-light  shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel">
@@ -49,6 +49,11 @@
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }} </a>
+                        </li>
+                        <li class="nav-item">
+                            @auth
+                                <a class="nav-link" href="{{ url('/admin/mangas') }}">{{ __('Catalogo') }}</a>
+                            @endauth
                         </li>
                     </ul>
 

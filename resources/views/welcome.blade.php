@@ -53,7 +53,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-ì        background-size: cover;
+       background-size: cover;
         background-position: center;
         color: white; /* Testo bianco per contrasto */
     }

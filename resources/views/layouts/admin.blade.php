@@ -15,7 +15,6 @@
         integrity='sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=='
         crossorigin='anonymous' referrerpolicy='no-referrer' />
 
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -26,10 +25,10 @@
 
 <body>
     <div id="app">
-
-        <div class="container-fluid vh-100">
+        {{-- rgb(198, 23, 81)" --}}
+        <div class="container-fluid vh-100"style="background-color:rgb(235, 0, 78)">
             <div class="row h-100">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse"style="background-color:  rgb(198, 23, 81) ">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
 
@@ -45,6 +44,14 @@
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
                                 </a>
                             </li>
+
+                            @auth
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="{{ route('admin.mangas.create') }}">
+                                        <i class="fa-solid fa-plus fa-lg fa-fw"></i> Crea Nuovo Manga
+                                    </a>
+                                </li>
+                            @endauth
 
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('logout') }}"
@@ -68,7 +75,6 @@
         </div>
 
     </div>
-
 
 </body>
 
