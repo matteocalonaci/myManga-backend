@@ -25,14 +25,9 @@ class MangaSeeder extends Seeder
             [
                 'title' => 'Oshi No Ko 1 - My Star',
                 'author_id' => 5, // Autore del manga
-                'description' => "La sedicenne Ai Hoshino è una talentuosa e bellissima idol, molto amata dai suoi fan. A prima vista, Ai sembra la personificazione della ragazza perfetta, ma non è tutto oro ciò che luccica.
-
-                                    Goro Honda è un ginecologo che vive in un'area rurale ed è un grande fan di Ai. Per questo non può che rimanere a bocca aperta quando la giovane idol arriva alla porta del suo studio con il suo tutore, incinta di due gemelli. Goro aiuta la giovane ad avere un parto sicuro. Tuttavia, l'incontro con una misteriosa figura causa l'improvvisa morte del dottore.
-
-                                    O almeno è quello che Goro pensava. Dopo essersi risvegliato in grembo alla sua amata idol, Goro scopre di essere rinato come uno dei figli di Ai Hoshino!
-
-                                    Goro inizierà a scoprire le verità che si celano all'interno dell'industria dell'intrattenimento, dove non sempre avere talento basta per ottenere successo. Riuscirà Goro a proteggere l'amato sorriso di Ai con l'aiuto di un'inaspettata alleata?",
-
+                'description' => "Goro Honda è un ginecologo che vive in un'area rurale ed è un grande fan di Ai. Per questo non può che rimanere a bocca aperta quando la giovane idol arriva alla porta del suo studio con il suo tutore, incinta di due gemelli. Goro aiuta la giovane ad avere un parto sicuro. Tuttavia, l'incontro con una misteriosa figura causa l'improvvisa morte del dottore.
+                O almeno è quello che Goro pensava. Dopo essersi risvegliato in grembo alla sua amata idol, Goro scopre di essere rinato come uno dei figli di Ai Hoshino!
+                Goro inizierà a scoprire le verità che si celano all'interno dell'industria dell'intrattenimento, dove non sempre avere talento basta per ottenere successo. Riuscirà Goro a proteggere l'amato sorriso di Ai con l'aiuto di un'inaspettata alleata?",
                 'cover_image' => 'https://mangayo.it/25841-large_default/oshi-no-ko-1-my-star.jpg',
                 'volume' => 1,
                 'price' => 6.50, // Prezzo in formato decimal
