@@ -1550,9 +1550,9 @@ class MangaSeeder extends Seeder
 
             $manga->slug = Str::slug($data['title']); // Compila lo slug
 
-            $manga->genres()->attach($data['genre']);
 
             $manga->save();
+            $manga->genres()->attach($data['genre']);
         }
     }
 }

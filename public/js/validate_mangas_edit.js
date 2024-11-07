@@ -1,236 +1,184 @@
 // Seleziona il pulsante di invio
-const submitButton = document.querySelector('button[type="submit"]');
+const submitButton = document.getElementById('submit');
 
-// ---------------------------------------------
-// VALIDAZIONE DEL PREZZO
-const priceInput = document.getElementById('price');
-
-priceInput.addEventListener('input', (e) => {
-    const priceValue = e.target.value;
-
-    // Rimuovi eventuali errori esistenti
-    const errorMessages = priceInput.parentNode.querySelectorAll('.alert.alert-danger');
+// Funzione per rimuovere errori esistenti
+const removeErrorMessages = (input) => {
+    const errorMessages = input.parentNode.querySelectorAll('.alert.alert-danger');
     errorMessages.forEach((error) => error.remove());
+};
 
-    // Controlla se il valore contiene caratteri speciali non accettati
-    if (/[^0-9\.\-,]/.test(priceValue)) {
-        const errorMessage = document.createElement('div');
-        errorMessage.className = 'alert alert-danger';
-        errorMessage.textContent = 'Questo carattere non è accettato.';
-        priceInput.parentNode.appendChild(errorMessage);
-        submitButton.disabled = true; // Disabilita il bottone
-    } else if (parseFloat(priceValue) <= 0) {
-        const errorMessage = document.createElement('div');
-        errorMessage.className = 'alert alert-danger';
-        errorMessage.textContent = 'Il prezzo deve essere un numero positivo.';
-        priceInput.parentNode.appendChild(errorMessage);
-        submitButton.disabled = true; // Disabilita il bottone
+// Funzione per mostrare errori
+const showError = (input, message) => {
+    const errorMessage = document.createElement('div');
+    errorMessage.className = 'alert alert-danger';
+    errorMessage.textContent = message;
+    input.parentNode.appendChild(errorMessage);
+    submitButton.disabled = true; // Disabilita il bottone
+};
+
+// Validazione del prezzo
+const priceInput = document.getElementById('price');
+priceInput.addEventListener('input', (e) => {
+    const priceValue = parseFloat(e.target.value);
+    removeErrorMessages(priceInput);
+
+    if (isNaN(priceValue) || priceValue <= 0) {
+        showError(priceInput, 'Il prezzo deve essere un numero positivo.');
     } else {
-        submitButton.disabled = false; // Abilita il bottone
+        validateAllFields(); // Verifica tutti i campi
     }
 });
 
-// ---------------------------------------------
-// VALIDAZIONE DELL'IMMAGINE
+// Validazione dell'immagine
 const fileInput = document.getElementById('cover_image');
-
 fileInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
+    removeErrorMessages(fileInput);
 
-    // Rimuovi eventuali errori esistenti
-    const errorMessages = fileInput.parentNode.querySelectorAll('.alert.alert-danger');
-    errorMessages.forEach((error) => error.remove());
-
-    // Verifica il nome del file
-    if (file) {
-        const fileName = file.name;
-        if (/[^a-zA-Z0-9\._-]/.test(fileName)) {
-            const errorMessage = document.createElement('div');
-            errorMessage.className = 'alert alert-danger';
-            errorMessage.textContent = 'Il nome del file contiene caratteri non validi.';
-            fileInput.parentNode.appendChild(errorMessage);
-            submitButton.disabled = true; // Disabilita il bottone
-        } else if (!['image/png', 'image/jpeg', 'image/gif'].includes(file.type)) {
-            const errorMessage = document.createElement('div');
-            errorMessage.className = 'alert alert-danger';
-            errorMessage.textContent = 'Il file selezionato non è un\'immagine valida. Sono accettati solo file .png, .jpg e .gif.';
-            fileInput.parentNode.appendChild(errorMessage);
-            submitButton.disabled = true; // Disabilita il bottone
-        } else {
-            submitButton.disabled = false; // Abilita il bottone
-        }
+    if (file && !['image/png', 'image/jpeg', 'image/gif'].includes(file.type)) {
+        showError(fileInput, 'Il file selezionato non è un\'immagine valida. Sono accettati solo file .png, .jpg e .gif.');
     } else {
-        submitButton.disabled = false; // Abilita il bottone se non c'è file
+        validateAllFields(); // Verifica tutti i campi
     }
 });
 
-// ---------------------------------------------
-// VALIDAZIONE DEL TITOLO
+// Validazione del titolo
 const nameInput = document.getElementById('title');
-
 nameInput.addEventListener('input', (e) => {
-    const inputValue = e.target.value;
-
-    // Rimuovi eventuali errori esistenti
-    const errorMessages = nameInput.parentNode.querySelectorAll('.alert.alert-danger');
-    errorMessages.forEach((error) => error.remove());
-
-    const regex = /^[a-zA-Z\s]+$/;
-    const minLength = 4;
-    const maxLength = 50;
-
-    if (inputValue !== '') {
-        if (!regex.test(inputValue)) {
-            const errorMessage = document.createElement('div');
-            errorMessage.className = 'alert alert-danger';
-            errorMessage.textContent = 'Sono ammessi solo lettere e spazi';
-            nameInput.parentNode.appendChild(errorMessage);
-            submitButton.disabled = true; // Disabilita il bottone
-        } else if (inputValue.length < minLength) {
-            const errorMessage = document.createElement('div');
-            errorMessage.className = 'alert alert-danger';
-            errorMessage.textContent = `Il nome deve avere almeno ${minLength} caratteri`;
-            nameInput.parentNode.appendChild(errorMessage);
-            submitButton.disabled = true; // Disabilita il bottone
-        } else if (inputValue.length > maxLength) {
-            const errorMessage = document.createElement('div');
-            errorMessage.className = 'alert alert-danger';
-            errorMessage.textContent = `Il nome deve avere non più di ${maxLength} caratteri`;
-            nameInput.parentNode.appendChild(errorMessage);
-            submitButton.disabled = true; // Disabilita il bottone
-        } else {
-            submitButton.disabled = false; // Abilita il bottone
-        }
-    } else {
-        submitButton.disabled = false; // Abilita il bottone
-    }
-});
-
-// ---------------------------------------------
-// VALIDAZIONE DELLA DESCRIZIONE
-const inputField = document.getElementById('description');
-
-inputField.addEventListener('input', (e) => {
-    const inputValue = e.target.value;
-
-    // Rimuovi eventuali errori esistenti
-    const errorMessages = inputField.parentNode.querySelectorAll('.alert.alert-danger');
-    errorMessages.forEach((error) => error.remove());
+    const inputValue = e.target.value.trim().replace(/\s+/g, ' '); // Rimuove spazi extra
+    removeErrorMessages(nameInput);
 
     const minLength = 4;
-    const maxLength = 255;
-    const allowedChars = /^[a-zA-Z0-9\s.,()"\/\-]+$/;
+    const maxLength = 500; // Puoi aumentare il limite massimo se necessario
+    const validCharacters = /^[\p{L}\p{N}() ,.\-\/"'’‘“”«»!?]*$/u;
 
     if (inputValue.length < minLength) {
-        const errorMessage = document.createElement('div');
-        errorMessage.className = 'alert alert-danger';
-        errorMessage.textContent = `Errore: Inserisci almeno ${minLength} caratteri.`;
-        inputField.parentNode.appendChild(errorMessage);
-        submitButton.disabled = true; // Disabilita il bottone
+        showError(nameInput, `Il testo deve avere almeno ${minLength} caratteri.`);
     } else if (inputValue.length > maxLength) {
-        const errorMessage = document.createElement('div');
-        errorMessage.className = 'alert alert-danger';
-        errorMessage.textContent = `Errore: Inserisci non più di ${maxLength} caratteri.`;
-        inputField.parentNode.appendChild(errorMessage);
-        submitButton.disabled = true; // Disabilita il bottone
-    } else if (!allowedChars.test(inputValue)) {
-        const errorMessage = document.createElement('div');
-        errorMessage.className = 'alert alert-danger';
-        errorMessage.textContent = `Errore: Sono consentiti solo lettere, numeri, spazi e i seguenti caratteri speciali: . , ( ) " / -`;
-        inputField.parentNode.appendChild(errorMessage);
-        submitButton.disabled = true; // Disabilita il bottone
+        showError(nameInput, `Il testo deve avere non più di ${maxLength} caratteri.`);
+    } else if (!validCharacters.test(inputValue)) {
+        showError(nameInput, 'Il testo contiene caratteri non validi.');
     } else {
-        submitButton.disabled = false; // Abilita il bottone
+        validateAllFields(); // Verifica tutti i campi
     }
 });
 
-// ---------------------------------------------
-// VALIDAZIONE DEL CAMPO IN PROGRESS
-const inProgressInput = document.getElementById('in_progress');
+// Validazione della descrizione
+const inputField = document.getElementById('description');
+inputField.addEventListener('input', (e) => {
+    // Rimuovi spazi extra e spazi iniziali/finali
+    const inputValue = e.target.value.trim().replace(/\s+/g, ' ');
+    removeErrorMessages(inputField);
 
-inProgressInput.addEventListener('change', (e) => {
-    // Non è necessario un messaggio di errore, ma possiamo gestire la logica
-    submitButton.disabled = false; // Abilita il bottone
+    const minLength = 4;
+    const maxLength = 1500;
+    const validCharacters = /^[\p{L}\p{N}() ,.\-\/"'’‘“”«»!?]*$/u;
+
+    if (inputValue.length < minLength) {
+        showError(inputField, `Errore: Inserisci almeno ${minLength} caratteri.`);
+    } else if (inputValue.length > maxLength) {
+        showError(inputField, `Errore: Inserisci non più di ${maxLength} caratteri.`);
+    } else if (!validCharacters.test(inputValue)) {
+        showError(inputField, 'La descrizione può contenere solo lettere, numeri e i seguenti caratteri speciali: (),.-/"\'!?');
+    } else {
+        validateAllFields(); // Verifica tutti i campi
+    }
 });
 
-// ---------------------------------------------
-// VALIDAZIONE DEGLI ID (author_id, category_id, genre_id)
+// Validazione del campo in progress
+const inProgressInput = document.getElementById('in_progress');
+inProgressInput.addEventListener('change', () => {
+    removeErrorMessages(inProgressInput);
+    validateAllFields(); // Verifica tutti i campi
+});
+
+// Validazione degli ID (author_id, category_id, editor_id)
 const authorIdInput = document.getElementById('author_id');
 const categoryIdInput = document.getElementById('category_id');
-const genreIdInput = document.getElementById('genre_id');
+const editorIdInput = document.getElementById('editor_id');
 
 const validateSelect = (selectInput) => {
     const selectedValue = selectInput.value;
-
-    // Rimuovi eventuali errori esistenti
-    const errorMessages = selectInput.parentNode.querySelectorAll('.alert.alert-danger');
-    errorMessages.forEach((error) => error.remove());
+    removeErrorMessages(selectInput);
 
     if (selectedValue === '') {
-        const errorMessage = document.createElement('div');
-        errorMessage.className = 'alert alert-danger';
-        errorMessage.textContent = 'Seleziona un valore valido.';
-        selectInput.parentNode.appendChild(errorMessage);
-        submitButton.disabled = true; // Disabilita il bottone
+        showError(selectInput, 'Seleziona un valore valido.');
     } else {
-        submitButton.disabled = false; // Abilita il bottone
+        validateAllFields(); // Verifica tutti i campi
     }
 };
 
 authorIdInput.addEventListener('change', () => validateSelect(authorIdInput));
 categoryIdInput.addEventListener('change', () => validateSelect(categoryIdInput));
-genreIdInput.addEventListener('change', () => validateSelect(genreIdInput));
+editorIdInput.addEventListener('change', () => validateSelect(editorIdInput));
 
-// ---------------------------------------------
-// VALIDAZIONE DELL'ANNO
+// Validazione dell'anno
 const yearInput = document.getElementById('year');
-
 yearInput.addEventListener('input', (e) => {
-    const yearValue = e.target.value;
+    const yearValue = parseInt(e.target.value, 10);
+    removeErrorMessages(yearInput);
 
-    // Rimuovi eventuali errori esistenti
-    const errorMessages = yearInput.parentNode.querySelectorAll('.alert.alert-danger');
-    errorMessages.forEach((error) => error.remove());
-
-    // Controlla se l'anno è valido
     if (yearValue < 1900 || yearValue > 2100) {
-        const errorMessage = document.createElement ('div');
-        errorMessage.className = 'alert alert-danger';
-        errorMessage.textContent = 'L\'anno deve essere compreso tra 1900 e 2100.';
-        yearInput.parentNode.appendChild(errorMessage);
-        submitButton.disabled = true; // Disabilita il bottone
+        showError(yearInput, 'L\'anno deve essere compreso tra 1900 e 2100.');
     } else {
-        submitButton.disabled = false; // Abilita il bottone
+        validateAllFields(); // Verifica tutti i campi
     }
 });
 
-// ---------------------------------------------
-// VALIDAZIONE DEL VOLUME
+// Validazione del volume
 const volumeInput = document.getElementById('volume');
-
 volumeInput.addEventListener('input', (e) => {
-    const volumeValue = e.target.value;
+    const volumeValue = parseInt(e.target.value, 10);
+    removeErrorMessages(volumeInput);
 
-    // Rimuovi eventuali errori esistenti
-    const errorMessages = volumeInput.parentNode.querySelectorAll('.alert.alert-danger');
-    errorMessages.forEach((error) => error.remove());
-
-    // Controlla se il volume è valido
     if (volumeValue < 1) {
-        const errorMessage = document.createElement('div');
-        errorMessage.className = 'alert alert-danger';
-        errorMessage.textContent = 'Il volume deve essere un numero positivo.';
-        volumeInput.parentNode.appendChild(errorMessage);
-        submitButton.disabled = true; // Disabilita il bottone
+        showError(volumeInput, 'Il volume deve essere un numero positivo.');
     } else {
-        submitButton.disabled = false; // Abilita il bottone
+        validateAllFields(); // Verifica tutti i campi
     }
 });
 
-// ---------------------------------------------
-// PREVENZIONE DELLA SOTTOMISSIONE DEL FORM
+// Validazione dei generi
+const genreCheckboxes = document.querySelectorAll('input[name="genres[]"]');
+
+const validateGenres = () => {
+    removeErrorMessages(genreCheckboxes[0]); // Rimuove errori da un checkbox (primo)
+
+    const isChecked = Array.from(genreCheckboxes).some(checkbox => checkbox.checked);
+    submitButton.disabled = !isChecked; // Abilita o disabilita il pulsante in base alla selezione
+};
+
+// Aggiungi l'evento change a tutti i checkbox dei generi
+genreCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', validateGenres);
+});
+
+// Esegui la validazione all'avvio per impostare lo stato iniziale
+submitButton.disabled = true; // Disabilita il pulsante di invio all'inizio
+validateGenres(); // Imposta lo stato iniziale del pulsante
+
+// Prevenzione della sottomissione del form
 submitButton.addEventListener('click', (e) => {
     if (submitButton.disabled) {
         e.preventDefault(); // Previene la sottomissione del form
     }
 });
+
+// Funzione per validare tutti i campi
+const validateAllFields = () => {
+    const allFieldsValid = [...genreCheckboxes].some(checkbox => checkbox.checked) &&
+        priceInput.value > 0 &&
+        (fileInput.files.length > 0 || !fileInput.value) && // Permette di non caricare un'immagine
+        nameInput.value.length >= 4 &&
+        nameInput.value.length <= 50 &&
+        inputField.value.length >= 4 &&
+        inputField.value.length <= 1500 &&
+        authorIdInput.value !== '' &&
+        categoryIdInput.value !== '' &&
+        editorIdInput.value !== '' &&
+        yearInput.value >= 1900 &&
+        yearInput.value <= 2100 &&
+        volumeInput.value >= 1;
+
+    submitButton.disabled = !allFieldsValid; // Abilita o disabilita il pulsante in base alla validità di tutti i campi
+};

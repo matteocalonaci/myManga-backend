@@ -68,7 +68,19 @@ class MangaController extends Controller
              'category_id' => 'required|exists:categories,id',
              'editor_id' => 'required|exists:editors,id',
              'genres' => 'required|array', // Assicurati che i generi siano forniti come array
-         ]);
+         ],     [
+            'price.min' => 'Il prezzo deve essere maggiore di 0.',
+            'cover_image.max' => 'Il file immagine non può essere più grande di 2 MB.',
+            'title.required' => 'Devi inserire il nome del manga.',
+            'year.required' => 'L\'anno di pubblicazione è obbligatorio.',
+            'year.numeric' => 'L\'anno deve essere un numero valido.',
+            'volume.required' => 'Il volume è obbligatorio.',
+            'volume.numeric' => 'Il volume deve essere un numero valido.',
+            'description.required' => 'Inserisci una descrizione.',
+            'author_id.required' => "Inserisci l'autore.",
+            'category_id.required' => 'Inserisci la categoria.',
+            'genres.required' => 'Inserisci il genere.',
+        ]);
 
              // Caricamento dell'immagine
          if ($request->has('cover_image')) {
@@ -120,7 +132,7 @@ class MangaController extends Controller
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Rendi questo campo nullable
-            'description' => 'required|string',
+            'description' => 'required|text',
             'price' => 'required|numeric',
             'availability' => 'required|boolean',
             'volume' => 'required|integer',
@@ -130,6 +142,18 @@ class MangaController extends Controller
             'category_id' => 'required|exists:categories,id',
             'editor_id' => 'required|exists:editors,id',
             'genres' => 'required|array', // Assicurati che i generi siano forniti come array
+        ],     [
+            'price.min' => 'Il prezzo deve essere maggiore di 0.',
+            'cover_image.max' => 'Il file immagine non può essere più grande di 2 MB.',
+            'title.required' => 'Devi inserire il nome del manga.',
+            'year.required' => 'L\'anno di pubblicazione è obbligatorio.',
+            'year.numeric' => 'L\'anno deve essere un numero valido.',
+            'volume.required' => 'Il volume è obbligatorio.',
+            'volume.numeric' => 'Il volume deve essere un numero valido.',
+            'description.required' => 'Inserisci una descrizione.',
+            'author_id.required' => "Inserisci l'autore.",
+            'category_id.required' => 'Inserisci la categoria.',
+            'genres.required' => 'Inserisci il genere.',
         ]);
 
         // Caricamento dell'immagine se fornita

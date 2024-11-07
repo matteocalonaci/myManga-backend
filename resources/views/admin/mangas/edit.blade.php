@@ -17,7 +17,7 @@
                     {{-- Titolo --}}
                     <div class="mb-3">
                         <label class="form-label fw-bold">Titolo del Manga *</label>
-                        <input type="text" class="form-control" name="title" value="{{ old('title', $manga->title) }}" required>
+                        <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $manga->title) }}" required>
                         @error('title')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -26,7 +26,7 @@
                     {{-- Immagine di Copertura --}}
                     <div class="mb-3">
                         <label class="form-label fw-bold">Immagine: *</label>
-                        <input type="file" class="form-control" name="cover_image">
+                        <input type="file" class="form-control" id="cover_image" name="cover_image">
                         @error('cover_image')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -41,7 +41,7 @@
                     {{-- Descrizione --}}
                     <div class="mb-3">
                         <label class="form-label fw-bold">Descrizione *</label>
-                        <textarea class="form-control" name="description" required>{{ old('description', $manga->description) }}</textarea>
+                        <textarea class="form-control" id="description" name="description" required>{{ old('description', $manga->description) }}</textarea>
                         @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -50,7 +50,7 @@
                     {{-- Prezzo --}}
                     <div class="mb-3">
                         <label class="form-label fw-bold">Prezzo *</label>
-                        <input type="number" step="0.01" class="form-control" name="price" value="{{ old('price', $manga->price) }}" required>
+                        <input type="number" step="0.01" id="price" class="form-control" name="price" value="{{ old('price', $manga->price) }}" required>
                         @error('price')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -59,7 +59,7 @@
                     {{-- Disponibilità --}}
                     <div class="mb-3">
                         <label class="form-label fw-bold">Disponibilità *</label>
-                        <select class="form-control" name="availability" required>
+                        <select class="form-control" id="availability" name="availability" required>
                             <option value="1" @if (old('availability', $manga->availability) == 1) selected @endif>Disponibile</option>
                             <option value="0" @if (old('availability', $manga->availability) == 0) selected @endif>Non Disponibile</option>
                         </select>
@@ -71,7 +71,7 @@
                     {{-- Volume --}}
                     <div class="mb-3">
                         <label class="form-label fw-bold">Volume *</label>
-                        <input type="number" class="form-control" name="volume" value="{{ old('volume', $manga->volume) }}" required>
+                        <input type="number" class="form-control" id="volume" name="volume" value="{{ old('volume', $manga->volume) }}" required>
                         @error('volume')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -80,7 +80,7 @@
                     {{-- Anno --}}
                     <div class="mb-3">
                         <label class="form-label fw-bold">Anno *</label>
-                        <input type="number" class="form-control" name="year" value="{{ old('year', $manga->year) }}" required>
+                        <input type="number" class="form-control" id="year" name="year" value="{{ old('year', $manga->year) }}" required>
                         @error('year')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -89,7 +89,7 @@
                     {{-- In Corso --}}
                     <div class="mb-3">
                         <label class=" form-label fw-bold">In Corso *</label>
-                        <select class="form-control" name="in_progress" required>
+                        <select class="form-control" id="in_progress" name="in_progress" required>
                             <option value="1" @if (old('in_progress', $manga->in_progress) == 1) selected @endif>Sì</option>
                             <option value="0" @if (old('in_progress', $manga->in_progress) == 0) selected @endif>No</option>
                         </select>
@@ -101,7 +101,7 @@
                     {{-- Autore --}}
                     <div class="mb-3">
                         <label class="form-label fw-bold">Autore *</label>
-                        <select class="form-control select2" name="author_id" required>
+                        <select class="form-control select2" id="author_id" name="author_id" required>
                             @foreach ($authors as $author)
                                 <option value="{{ $author->id }}" @if (old('author_id', $manga->author_id) == $author->id) selected @endif>{{ $author->name }}</option>
                             @endforeach
@@ -114,7 +114,7 @@
                     {{-- Categoria --}}
                     <div class="mb-3">
                         <label class="form-label fw-bold">Categoria *</label>
-                        <select class="form-control select2" name="category_id" required>
+                        <select class="form-control select2" id="category_id" name="category_id" required>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}" @if (old('category_id', $manga->category_id) == $category->id) selected @endif>{{ $category->name }}</option>
                             @endforeach
@@ -127,7 +127,7 @@
                     {{-- Editore --}}
                     <div class="mb-3">
                         <label class="form-label fw-bold">Editore *</label>
-                        <select class="form-control select2" name="editor_id" required>
+                        <select class="form-control select2" id="editor_id" name="editor_id" required>
                             @foreach ($editors as $editor)
                                 <option value="{{ $editor->id }}" @if (old('editor_id', $manga->editor_id) == $editor->id) selected @endif>{{ $editor->name }}</option>
                             @endforeach
@@ -139,7 +139,7 @@
 
                     {{-- Generi --}}
                     <div class="form-group">
-                        <label for="genres" class="form-label fw-bold">Generi: *</label>
+                        <label for="genres" id="genres" class="form-label fw-bold">Generi: *</label>
                         <div class="check-box d-flex flex-wrap" id="genres-checkbox">
                             @foreach ($genres as $genre)
                                 <span class="col-md-3 col-sm-4 col-6">
@@ -156,7 +156,7 @@
 
                     <div class="mt-3" style="color: gray">I campi contenenti <b style="color: black">*</b> sono obbligatori </div>
 
-                    <button type="submit" class="btn btn-primary mt-3">Aggiorna Manga</button>
+                    <button type="submit" id="submit" class="btn btn-primary mt-3">Aggiorna Manga</button>
                 </form>
             </div>
         </div>
