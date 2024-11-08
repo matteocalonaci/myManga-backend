@@ -1,12 +1,12 @@
-# Manga Catalog
+# myManga
 
 ## Descrizione
 
-Manga Catalog è un'applicazione web per la gestione e la visualizzazione di un catalogo di manga. Permette agli utenti di esplorare vari manga, visualizzare i dettagli, e gestire le informazioni relative a ciascun titolo, come autore, genere, prezzo e disponibilità.
+myManga è un'applicazione web per la gestione e la visualizzazione di un catalogo di manga. Permette agli utenti di esplorare vari manga, visualizzare i dettagli, e gestire le informazioni relative a ciascun titolo, come autore, genere, prezzo e disponibilità.
 
 ## Funzionalità
 
-- Visualizzazione della lista dei manga.
+- Visualizzazione della lista dei manga, autori, categorie, editori e generi.
 - Dettagli del manga, inclusi:
   - Titolo
   - Autore
@@ -18,7 +18,7 @@ Manga Catalog è un'applicazione web per la gestione e la visualizzazione di un 
   - Genere
   - Categoria
   - Editore
-- Interfaccia amministrativa per aggiungere, modificare e rimuovere manga.
+- Interfaccia amministrativa per aggiungere, modificare e rimuovere manga, autori, categorie, editori e generi.
 
 ## Tecnologie Utilizzate
 
