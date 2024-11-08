@@ -52,7 +52,27 @@
                         </li>
                         <li class="nav-item">
                             @auth
-                                <a class="nav-link" href="{{ url('/admin/mangas') }}">{{ __('Catalogo') }}</a>
+                                <a class="nav-link" href="{{ url('/admin/mangas') }}">{{ __('Manga') }}</a>
+                            @endauth
+                        </li>
+                        <li>
+                            @auth
+                                <a class="nav-link" href="{{ url('/admin/editors') }}">{{ __('Editori') }}</a>
+                            @endauth
+                        </li>
+                        <li>
+                            @auth
+                                <a class="nav-link" href="{{ url('/admin/authors') }}">{{ __('Autori') }}</a>
+                            @endauth
+                        </li>
+                        <li>
+                            @auth
+                                <a class="nav-link" href="{{ url('/admin/categories') }}">{{ __('Categorie') }}</a>
+                            @endauth
+                        </li>
+                        <li>
+                            @auth
+                                <a class="nav-link" href="{{ url('/admin/genres') }}">{{ __('Generi') }}</a>
                             @endauth
                         </li>
                     </ul>

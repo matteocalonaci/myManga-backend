@@ -23,13 +23,25 @@
                         </div>
 
                         <div class="text-center">
-                            <a href="{{ route('admin.mangas.index') }}" class="btn btn-primary">
+                            <a href="{{ route('admin.mangas.index') }}" class="btn btn-success  m-1">
                                 <i class="fa-solid fa-book-open fa-lg me-2"></i>
                                 {{ __('Visualizza Catalogo Manga') }}
                             </a>
-                            <a href="{{ route('admin.mangas.create') }}" class="btn btn-success">
-                                <i class="fa-solid fa-plus fa-lg me-2"></i>
-                                {{ __('Crea Nuovo Manga') }}
+                            <a href="{{ route('admin.editors.index') }}" class="btn btn-warning m-1">
+                                <i class="fa-solid fa-book-open fa-lg me-2"></i>
+                                {{ __('Visualizza Catalogo Editori') }}
+                            </a>
+                            <a href="{{ route('admin.authors.index') }}" class="btn btn-danger m-1">
+                                <i class="fa-solid fa-book-open fa-lg me-2"></i>
+                                {{ __('Visualizza Catalogo Autori') }}
+                            </a>
+                            <a href="{{ route('admin.genres.index') }}" class="btn btn-info m-1">
+                                <i class="fa-solid fa-book-open fa-lg me-2"></i>
+                                {{ __('Visualizza Catalogo Generi') }}
+                            </a>
+                            <a href="{{ route('admin.categories.index') }}" class="btn btn-dark m-1">
+                                <i class="fa-solid fa-book-open fa-lg me-2"></i>
+                                {{ __('Visualizza Catalogo Categorie') }}
                             </a>
                         </div>
                     </div>
