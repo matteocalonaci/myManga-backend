@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class EditorController extends Controller
 {
+    /**
+     * Search for editors based on the search term.
+     */
     public function searchEditors(Request $request)
     {
         $searchTerm = $request->get('q');
@@ -15,12 +18,24 @@ class EditorController extends Controller
 
         return response()->json($editors);
     }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // Inizializza la query
+        $query = Editor::query();
+
+        // Aggiungi la logica di ricerca
+        if ($request->has('search') && $request->search != '') {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+        // Recupera gli editor paginati
+        $editors = $query->paginate(5);
+
+        return view('admin.editors.index', ['editors' => $editors]);
     }
 
     /**
@@ -28,7 +43,7 @@ class EditorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.editors.create');
     }
 
     /**
@@ -36,7 +51,16 @@ class EditorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+        ], [
+            'name.required' => 'Devi inserire il nome dell\'editore.',
+        ]);
+
+        // Crea il nuovo editore
+        Editor::create($data);
+
+        return redirect()->route('admin.editors.index')->with('success', 'Editore creato con successo!');
     }
 
     /**
@@ -44,7 +68,7 @@ class EditorController extends Controller
      */
     public function show(Editor $editor)
     {
-        //
+        return view('admin.editors.show', compact('editor'));
     }
 
     /**
@@ -52,7 +76,7 @@ class EditorController extends Controller
      */
     public function edit(Editor $editor)
     {
-        //
+        return view('admin.editors.edit', compact('editor'));
     }
 
     /**
@@ -60,7 +84,16 @@ class EditorController extends Controller
      */
     public function update(Request $request, Editor $editor)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+        ], [
+            'name.required' => 'Devi inserire il nome dell\'editore.',
+        ]);
+
+        // Aggiorna l'editore
+        $editor->update($data);
+
+        return redirect()->route('admin.editors.index')->with('success', 'Editore aggiornato con successo!');
     }
 
     /**
@@ -68,6 +101,8 @@ class EditorController extends Controller
      */
     public function destroy(Editor $editor)
     {
-        //
+        $editor->delete();
+
+        return redirect()->route('admin.editors.index')->with('success', 'Editore eliminato con successo!');
     }
 }

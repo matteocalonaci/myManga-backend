@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
-
-
+    /**
+     * Search for authors based on the search term.
+     */
     public function searchAuthors(Request $request)
     {
         $searchTerm = $request->get('q');
@@ -21,9 +22,20 @@ class AuthorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // Inizializza la query
+        $query = Author::query();
+
+        // Aggiungi la logica di ricerca
+        if ($request->has('search') && $request->search != '') {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+        // Recupera gli autori paginati
+        $authors = $query->paginate(5);
+
+        return view('admin.authors.index', ['authors' => $authors]);
     }
 
     /**
@@ -31,7 +43,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.authors.create');
     }
 
     /**
@@ -39,7 +51,16 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+        ], [
+            'name.required' => 'Devi inserire il nome dell\'autore.',
+        ]);
+
+        // Crea il nuovo autore
+        Author::create($data);
+
+        return redirect()->route('admin.authors.index')->with('success', 'Autore creato con successo!');
     }
 
     /**
@@ -47,7 +68,7 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
-        //
+        return view('admin.authors.show', compact('author'));
     }
 
     /**
@@ -55,7 +76,7 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
-        //
+        return view('admin.authors.edit', compact('author'));
     }
 
     /**
@@ -63,7 +84,16 @@ class AuthorController extends Controller
      */
     public function update(Request $request, Author $author)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+        ], [
+            'name.required' => 'Devi inserire il nome dell\'autore.',
+        ]);
+
+        // Aggiorna l'autore
+        $author->update($data);
+
+        return redirect()->route('admin.authors.index')->with('success', 'Autore aggiornato con successo!');
     }
 
     /**
@@ -71,6 +101,8 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
-        //
+        $author->delete();
+
+        return redirect()->route('admin.authors.index')->with('success', 'Autore eliminato con successo!');
     }
 }

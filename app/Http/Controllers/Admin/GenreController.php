@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 
 class GenreController extends Controller
 {
-
+    /**
+     * Search for genres based on the search term.
+     */
     public function searchGenre(Request $request)
     {
         $searchTerm = $request->get('q');
@@ -16,12 +18,24 @@ class GenreController extends Controller
 
         return response()->json($genres);
     }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // Inizializza la query
+        $query = Genre::query();
+
+        // Aggiungi la logica di ricerca
+        if ($request->has('search') && $request->search != '') {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+        // Recupera i generi paginati
+        $genres = $query->paginate(5);
+
+        return view('admin.genres.index', ['genres' => $genres]);
     }
 
     /**
@@ -29,7 +43,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.genres.create');
     }
 
     /**
@@ -37,7 +51,16 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+        ], [
+            'name.required' => 'Devi inserire il nome del genere.',
+        ]);
+
+        // Crea il nuovo genere
+        Genre::create($data);
+
+        return redirect()->route('admin.genres.index')->with('success', 'Genere creato con successo!');
     }
 
     /**
@@ -45,7 +68,7 @@ class GenreController extends Controller
      */
     public function show(Genre $genre)
     {
-        //
+        return view('admin.genres.show', compact('genre'));
     }
 
     /**
@@ -53,7 +76,7 @@ class GenreController extends Controller
      */
     public function edit(Genre $genre)
     {
-        //
+        return view('admin.genres.edit', compact('genre'));
     }
 
     /**
@@ -61,7 +84,16 @@ class GenreController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+        ], [
+            'name.required' => 'Devi inserire il nome del genere.',
+        ]);
+
+        // Aggiorna il genere
+        $genre->update($data);
+
+        return redirect()->route('admin.genres.index')->with('success', 'Genere aggiornato con successo!');
     }
 
     /**
@@ -69,6 +101,8 @@ class GenreController extends Controller
      */
     public function destroy(Genre $genre)
     {
-        //
+        $genre->delete();
+
+        return redirect()->route('admin.genres.index')->with('success', 'Genere eliminato con successo!');
     }
 }
