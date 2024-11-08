@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EditorController;
 use App\Http\Controllers\Admin\GenreController;
 use App\Http\Controllers\Admin\MangaController;
+use App\Models\Author;
+use App\Models\Genre;
 use Illuminate\Support\Facades\Auth;
 
 // ...
@@ -27,6 +29,11 @@ Route::middleware(['auth'])
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('/mangas', MangaController::class);
+        Route::resource('/editors', EditorController::class);
+        Route::resource('/genres', GenreController::class);
+        Route::resource('/authors', AuthorController::class);
+        Route::resource('/categories', CategoryController::class);
+
         Route::get('/search-authors', [AuthorController::class, 'searchAuthors']);
         Route::get('/search-categories', [CategoryController::class, 'searchCategories']);
         Route::get('/search-genres', [GenreController::class, 'searchGenres']);
