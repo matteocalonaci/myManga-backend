@@ -33,7 +33,7 @@
                     <div class="logo_laravel">
 
                 {{-- LOGO KANA --}}
-                    <img style="width: 5rem" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl1VeL2KLxKxvIJqCjd3uZpEMfFK_a2aivHg&s" alt="">
+                    <img style="width: 5rem; border-radius:5rem" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl1VeL2KLxKxvIJqCjd3uZpEMfFK_a2aivHg&s" alt="">
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>

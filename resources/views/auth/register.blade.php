@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-4">
-    <div class="row justify-content-center">
+<div class="container-fluid h-100">
+    <div class="row h-100 justify-content-center" style="margin-top: 5rem">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
@@ -75,3 +75,20 @@
     </div>
 </div>
 @endsection
+
+<style scoped>
+    html, body {
+        height: 100%; /* Imposta l'altezza del body e dell'html a 100% */
+        margin: 0; /* Rimuove il margine predefinito */
+        overflow: hidden; /* Rimuove le barre di scorrimento */
+    }
+
+    .container-fluid {
+        height: 100%; /* Imposta l'altezza del contenitore a 100% */
+    }
+
+    .card {
+        margin: 0 auto; /* Centra la card orizzontalmente */
+        max-width: 50rem; /* Imposta una larghezza massima per la card */
+    }
+</style>
