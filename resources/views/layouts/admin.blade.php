@@ -53,6 +53,38 @@
                                 </li>
                             @endauth
 
+                            @auth
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="{{ route('admin.editors.create') }}">
+                                        <i class="fa-solid fa-plus fa-lg fa-fw"></i> Crea Nuovo Editore
+                                    </a>
+                                </li>
+                            @endauth
+
+                            @auth
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="{{ route('admin.genres.create') }}">
+                                        <i class="fa-solid fa-plus fa-lg fa-fw"></i> Crea Nuovo Genere
+                                    </a>
+                                </li>
+                            @endauth
+
+                            @auth
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="{{ route('admin.categories.create') }}">
+                                        <i class="fa-solid fa-plus fa-lg fa-fw"></i> Crea Nuova Categoria
+                                    </a>
+                                </li>
+                            @endauth
+
+                            @auth
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="{{ route('admin.authors.create') }}">
+                                        <i class="fa-solid fa-plus fa-lg fa-fw"></i> Crea Nuovo Autore
+                                    </a>
+                                </li>
+                            @endauth
+
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
