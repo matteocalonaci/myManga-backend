@@ -22,5 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Rotte per la gestione dei manga
 Route::get('mangas', function(){
     return Manga::all();
-
 });
