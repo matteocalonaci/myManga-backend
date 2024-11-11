@@ -139,9 +139,9 @@ class MangaController extends Controller
         // Valida i dati del manga
         $data = $request->validate([
             'title' => 'required|string|max:255',
-            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Rendi questo campo nullable
-            'description' => 'required|text',
-            'price' => 'required|numeric',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'description' => 'required|string|max:1500',
+            'price' => 'required|numeric|min:0',
             'availability' => 'required|boolean',
             'volume' => 'required|integer',
             'year' => 'required|integer',
@@ -149,22 +149,22 @@ class MangaController extends Controller
             'author_id' => 'required|exists:authors,id',
             'category_id' => 'required|exists:categories,id',
             'editor_id' => 'required|exists:editors,id',
-            'genres' => 'required|array', // Assicurati che i generi siano forniti come array
-        ],     [
+            'genres' => 'required|array',
+        ], [
             'price.min' => 'Il prezzo deve essere maggiore di 0.',
             'cover_image.max' => 'Il file immagine non può essere più grande di 2 MB.',
             'title.required' => 'Devi inserire il nome del manga.',
             'year.required' => 'L\'anno di pubblicazione è obbligatorio.',
-            'year.numeric' => 'L\'anno deve essere un numero valido.',
+            'year.integer' => 'L\'anno deve essere un numero valido.',
             'volume.required' => 'Il volume è obbligatorio.',
-            'volume.numeric' => 'Il volume deve essere un numero valido.',
+            'volume.integer' => 'Il volume deve essere un numero valido.',
             'description.required' => 'Inserisci una descrizione.',
             'author_id.required' => "Inserisci l'autore.",
             'category_id.required' => 'Inserisci la categoria.',
             'genres.required' => 'Inserisci il genere.',
         ]);
 
-        // Caricamento dell'immagine se fornita
+        // Gestione dell'immagine di copertura
         if ($request->has('cover_image')) {
             // Elimina l'immagine esistente se ce n'è una
             if ($manga->cover_image) {
@@ -172,8 +172,7 @@ class MangaController extends Controller
             }
 
             // Salva la nuova immagine
-            $image_path = $request->file('cover_image')->store('images', 'public');
-            $data['cover_image'] = $image_path;
+            $data['cover_image'] = $request->file('cover_image')->store('images', 'public');
         } else {
             // Se non viene caricata una nuova immagine, mantieni l'immagine esistente
             $data['cover_image'] = $manga->cover_image;
@@ -183,11 +182,10 @@ class MangaController extends Controller
         $manga->update($data);
 
         // Aggiungi o aggiorna i generi associati
-        $manga->genres()->sync($request->input('genres')); // Usa sync per aggiornare i generi
+        $manga->genres()->sync($request->input('genres'));
 
         return redirect()->route('admin.mangas.index')->with('success', 'Manga aggiornato con successo!');
     }
-
     /**
      * Remove the specified resource from storage.
      */
