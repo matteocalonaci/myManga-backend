@@ -32,7 +32,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User ::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -45,6 +45,15 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+
+        // Creazione di un utente predefinito se non esiste già
+        if (!User ::where('email', 'admin@example.com')->exists()) {
+            User::create([
+                'name' => 'Matteo Calonaci',
+                'email' => 'matteo.calonaci.1994@gmail.com',
+                'password' => '12345678', // Assicurati di usare una password sicura
+            ]);
+        }
 
         return redirect(RouteServiceProvider::HOME);
     }
