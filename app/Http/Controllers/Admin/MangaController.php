@@ -195,6 +195,11 @@ class MangaController extends Controller
         $manga = Manga::find($mangaId);
 
         if ($manga) {
+            // Controlla se esiste un'immagine di copertura e, in caso affermativo, eliminala
+            if ($manga->cover_image) {
+                Storage::disk('public')->delete($manga->cover_image);
+            }
+
             // Elimina le relazioni nella tabella pivot
             $manga->genres()->detach(); // Rimuove tutte le associazioni
 
