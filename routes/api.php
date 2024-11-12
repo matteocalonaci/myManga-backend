@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\MangaController;
 use App\Models\Manga;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Rotte per la gestione dei manga
-Route::get('mangas', function(){
-    return Manga::orderBy('id')->paginate();
-});
+Route::get('mangas', [MangaController::class,'index']);
