@@ -11,7 +11,7 @@ class MangaController extends Controller
         return response()->json([
             'success'=> true,
             //with per pescare anche i generi
-            'mangas' =>  Manga::with('genres')->orderBy('id')->paginate(10)
+            'mangas' =>  Manga::with('genres')->orderBy('id')->paginate(12)
         ]);
     }
 
