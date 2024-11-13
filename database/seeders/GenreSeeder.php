@@ -14,23 +14,23 @@ class GenreSeeder extends Seeder
     public function run(): void
     {
         $genres = [
-            'Action',
-            'Adventure',
-            'Comedy',
-            'Drama',
-            'Fantasy',
+            'Azione',
+            'Avventura',
+            'Commedia',
+            'Dramma',
+            'Fantasia',
             'Horror',
-            'Mystery',
-            'Romance',
-            'Sci-Fi',
-            'Slice of Life',
-            'Supernatural',
+            'Mistero',
+            'Romanzo',
+            'Fantascienza',
+            'Vita Quotidiana',
+            'Supernaturale',
             'Thriller',
-            'Historical',
-            'Sports',
+            'Storico',
+            'Sport',
             'Isekai',
             'Mecha',
-            'Magical Girl',
+            'Ragazza Magica',
             'Yuri',
             'Yaoi',
             'Josei',
@@ -38,8 +38,8 @@ class GenreSeeder extends Seeder
             'Shojo',
             'Seinen',
             'Kodomo',
-            'Music',
-            'Psychologic'
+            'Musica',
+            'Psicologico'
         ];
 
         foreach ($genres as $genreName) {

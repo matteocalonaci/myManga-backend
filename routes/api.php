@@ -20,5 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Rotte per la gestione dei manga
-Route::get('mangas', [MangaController::class,'index']);
+// Definisci le rotte API per i manga
+Route::get('/mangas', [MangaController::class, 'index']);
+Route::get('/mangas/{slug}', [MangaController::class, 'show']);
