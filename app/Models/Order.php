@@ -15,8 +15,8 @@ class Order extends Model
         'order_date',
     ];
     use HasFactory;
-    public function manga()
+    public function mangas()
     {
-        return $this->belongsToMany(Manga::class, 'order_manga');
+        return $this->belongsToMany(Manga::class, 'order_manga')->withPivot('quantity');;
     }
 }
