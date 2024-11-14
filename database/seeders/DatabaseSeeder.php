@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             EditorSeeder::class,
             MangaSeeder::class,
-            // OrderSeeder::class, //  seeder per gli ordini
+            OrderSeeder::class,
         ]);
     }
 }

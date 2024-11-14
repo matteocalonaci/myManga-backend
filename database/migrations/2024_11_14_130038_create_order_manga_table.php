@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('order_manga', function (Blueprint $table) {
             $table->id();
-            $table->string('client_name');
-            $table->string('client_address');
-            $table->decimal('total_price', 8, 2);
-            $table->string('status');
-            $table->dateTime('order_date');
-
+            $table->foreignId('order_id')->constrained(); // Colonna per il ordine
+            $table->foreignId('manga_id')->constrained(); // Colonna per il manga
+            $table->string('quantity')->default();
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('order_manga');
     }
 };

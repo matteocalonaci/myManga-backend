@@ -7,5 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    protected $fillable = [
+        'client_name',
+        'pricclent_address',
+        'total_price',
+        'status',
+        'order_date',
+    ];
     use HasFactory;
+    public function manga()
+    {
+        return $this->belongsToMany(Manga::class, 'order_manga');
+    }
 }

@@ -42,6 +42,10 @@ class Manga extends Model
     {
         return $this->belongsTo(Author::class, 'author_id');
     }
+    public function orders()
+    {
+        return $this->belongsToMany(Genre::class, 'order_manga');
+    }
 
 }
 
