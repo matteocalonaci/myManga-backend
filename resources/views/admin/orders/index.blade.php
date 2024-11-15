@@ -99,65 +99,64 @@
     html, body {
         height: 100%;
         margin: 0;
-        overflow-x: hidden; /* Nasconde lo scorrimento orizzontale */
+        overflow-x: hidden;
     }
 
 
     .container {
-        padding: 0; /* Rimuove il padding laterale */
+        padding: 0;
     }
 
     .table-responsive {
-        overflow-x: auto; /* Consente lo scroll orizzontale solo se necessario */
-        width: 100%; /* Assicura che la tabella occupi il 100% della larghezza */
+        overflow-x: auto;
+        width: 100%;
     }
 
     .table {
-        width: 100%; /* Imposta la larghezza della tabella al 100% */
-        border-collapse: collapse; /* Rimuove gli spazi tra le celle */
+        width: 100%;
+        border-collapse: collapse;
     }
 
     .table-sm th, .table-sm td {
-        overflow: hidden; /* Nasconde il contenuto in eccesso */
-        text-overflow: ellipsis; /* Mostra i puntini di sospensione se il testo è troppo lungo */
-        min-width: 1rem; /* Imposta una larghezza massima per le celle */
-        word-wrap: break-word; /* Permette la rottura delle parole */
-        overflow-wrap: break-word; /* Permette la rottura delle parole */
-        white-space: normal; /* Permette il ritorno a capo */
-        padding: 0.5rem; /* Aggiunge padding per migliorare l'aspetto */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 1rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+        padding: 0.5rem;
     }
 
     @media (max-width: 576px) {
         .table-sm {
-            display: block; /* Rende la tabella un blocco */
-            overflow-x: auto; /* Consente lo scroll orizzontale */
-            width: 100%; /* Assicura che la tabella occupi il 100% della larghezza */
+            display: block;
+            width: 100%;
         }
 
         .table-sm thead {
-            display: none; /* Nasconde l'intestazione della tabella per schermi piccoli */
+            display: none;
         }
 
         .table-sm tr {
-            display: block; /* Rende ogni riga della tabella un blocco */
-            margin-bottom: 20px; /* Aggiunge margine tra le righe */
-            border-bottom: 2px solid #ccc; /* Aggiunge una linea di separazione */
+            display: block;
+            margin-bottom: 1.5rem; /
+            border-bottom: 0.01rem solid #ccc;
         }
 
         .table-sm td {
-            display: block; /* Rende ogni cella un blocco */
-            width: calc(100%); /* Imposta la larghezza delle celle al 100% meno il padding */
-            padding: 10px; /* Aggiunge padding alle celle */
-            border: none; /* Rimuove i bordi */
-            border-bottom: 1px solid #ccc; /* Aggiunge un bordo inferiore */
-            box-sizing: border-box; /* Include padding e bordi nella larghezza totale */
-            background-color: white; /* Aggiunge uno sfondo bianco per contrasto */
+            display: block;
+            width: calc(100%);
+            padding: 1rem;
+            border: none;
+            border-bottom: 0.01rem solid #ccc;
+            box-sizing: border-box;
+            background-color: white;
         }
 
         .table-sm td:before {
-            content: attr(data-label); /* Mostra l'etichetta della cella */
-            font-weight: bold; /* Rende il testo in grassetto */
-            margin-right: 10px; /* Aggiunge margine a destra */
+            content: attr(data-label);
+            font-weight: bold;
+            margin-right: 1rem;
         }
     }
 </style>
