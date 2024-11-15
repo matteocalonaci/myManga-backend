@@ -26,8 +26,7 @@
                             <th>Indirizzo Consegna</th>
                             <th>Data Ordine</th>
                             <th>Totale</th>
-                            <th>Manga</th>
-                            <th>Quantità</th>
+                            <th>Manga e quantità</th>
                             <th>Consegna</th>
                             <th>Azioni</th>
                         </tr>
@@ -40,19 +39,13 @@
                                 <td data-label="Data Ordine">{{ $order->order_date }}</td>
                                 <td data-label="Totale">€{{ $order->total_price }}</td>
                                 <td data-label="Manga">
-                                    <ul class="list-unstyled p-2 ">
+                                    <ul class="list-unstyled">
                                      @foreach ($order->mangas as $manga)
-                                            <li>{{ $manga->title }} ({{ $manga->pivot->quantity }})</li>
+                                            <li>{{ $manga->title }} - ({{ $manga->pivot->quantity }})</li>
                                         @endforeach
                                     </ul>
                                 </td>
-                                <td data-label="Quantità">
-                                    <ul class="list-unstyled text-center">
-                                        @foreach ($order->mangas as $manga)
-                                            <li>{{ $manga->pivot->quantity }}</li>
-                                        @endforeach
-                                    </ul>
-                                </td>
+
                                 <td data-label="Consegna">{{ $order->status }}</td>
 
                                 <td data-label="Azioni">
@@ -81,11 +74,11 @@
                     </tbody>
                 </table>
 
-                <div class="d-flex flex-wrap justify-content-between align-items-center mt <div class="d-flex flex-wrap justify-content-between align-items-center mt-3">
+                <div class="d-flex flex-wrap justify-content-between align-items-center mt-3">
                     <div class="px-3 px-md-5">
                         Mostra
                         <strong>{{ $orders->firstItem() }}</strong> a
-                        <strong>{{ $orders->lastItem() }}</strong> di
+                        <strong>{{ $orders->lastItem() }}</ strong> di
                         <strong>{{ $orders->total() }}</strong> risultati
                     </div>
                     <div class="mt-2 mt-md-0">
@@ -100,28 +93,23 @@
             @endif
         </div>
     </div>
-    </div>
 @endsection
 
 <style scoped>
     html, body {
-        height: 100%; /* Imposta l'altezza del body e dell'html a 100% */
-        margin: 0; /* Rimuove il margine predefinito */
-        overflow: auto; /* Permette lo scorrimento della pagina principale se necessario */
+        height: 100%;
+        margin: 0;
+        overflow-x: hidden; /* Nasconde lo scorrimento orizzontale */
     }
 
-    .btn-custom {
-        height: 2rem; /* Imposta l'altezza desiderata */
-        min-width: 5rem; /* Imposta una larghezza minima per entrambi i bottoni */
-        margin-right: 0.5rem;
-    }
 
     .container {
-        height: auto; /* Mantieni l'altezza auto per adattarsi al contenuto */
+        padding: 0; /* Rimuove il padding laterale */
     }
 
     .table-responsive {
-        padding: 0; /* Rimuove il padding per una migliore visualizzazione */
+        overflow-x: auto; /* Consente lo scroll orizzontale solo se necessario */
+        width: 100%; /* Assicura che la tabella occupi il 100% della larghezza */
     }
 
     .table {
@@ -130,23 +118,20 @@
     }
 
     .table-sm th, .table-sm td {
-        white-space: nowrap; /* Impedisce il ritorno a capo del testo nelle celle */
         overflow: hidden; /* Nasconde il contenuto in eccesso */
         text-overflow: ellipsis; /* Mostra i puntini di sospensione se il testo è troppo lungo */
-    }
-
-    .btn-add-order {
-        width: 20rem;
+        min-width: 1rem; /* Imposta una larghezza massima per le celle */
+        word-wrap: break-word; /* Permette la rottura delle parole */
+        overflow-wrap: break-word; /* Permette la rottura delle parole */
+        white-space: normal; /* Permette il ritorno a capo */
+        padding: 0.5rem; /* Aggiunge padding per migliorare l'aspetto */
     }
 
     @media (max-width: 576px) {
-        .table-responsive {
-            overflow-x: auto; /* Consente lo scroll orizzontale su schermi piccoli */
-        }
-
         .table-sm {
-            width: 100%; /* Imposta la larghezza della tabella al 100% */
-            margin: 0 auto; /* Centra la tabella orizzontalmente */
+            display: block; /* Rende la tabella un blocco */
+            overflow-x: auto; /* Consente lo scroll orizzontale */
+            width: 100%; /* Assicura che la tabella occupi il 100% della larghezza */
         }
 
         .table-sm thead {
@@ -161,35 +146,18 @@
 
         .table-sm td {
             display: block; /* Rende ogni cella un blocco */
-            width: 100%; /* Imposta la larghezza delle celle al 100% */
+            width: calc(100%); /* Imposta la larghezza delle celle al 100% meno il padding */
             padding: 10px; /* Aggiunge padding alle celle */
             border: none; /* Rimuove i bordi */
             border-bottom: 1px solid #ccc; /* Aggiunge un bordo inferiore */
+            box-sizing: border-box; /* Include padding e bordi nella larghezza totale */
+            background-color: white; /* Aggiunge uno sfondo bianco per contrasto */
         }
 
         .table-sm td:before {
             content: attr(data-label); /* Mostra l'etichetta della cella */
             font-weight: bold; /* Rende il testo in grassetto */
             margin-right: 10px; /* Aggiunge margine a destra */
-        }
-
-        .table-sm tr:not(:last-child) {
-            margin-bottom: 20px; /* Aggiunge margine solo alle righe che non sono ultime */
-        }
-
-        .btn-custom {
-            height: 2rem; /* Imposta l'altezza desiderata */
-            min-width: 5rem; /* Imposta una larghezza minima per entrambi i bottoni */
-            margin-right: 0;
-        }
-
-        .btn-add-order {
-            width: 100%;
-        }
-
-        .search-bar {
-            padding-left: 1rem;
-            padding-right: 1rem;
         }
     }
 </style>
