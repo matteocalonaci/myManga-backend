@@ -78,6 +78,11 @@
                                 <a class="nav-link" href="{{ url('/admin/genres') }}">{{ __('Generi') }}</a>
                             @endauth
                         </li>
+                        <li>
+                            @auth
+                                <a class="nav-link" href="{{ url('/admin/orders') }}">{{ __('Ordini') }}</a>
+                            @endauth
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
