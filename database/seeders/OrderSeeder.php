@@ -26,7 +26,7 @@ class OrderSeeder extends Seeder
 
             $mangas = Manga::inRandomOrder()->take(rand(1, 10))->get();
             foreach ($mangas as $manga) {
-                $order->manga()->attach($manga->id, ['quantity' => $faker->numberBetween(1, 3)]);
+                $order->mangas()->attach($manga->id, ['quantity' => $faker->numberBetween(1, 3)]);
             }
         }
     }

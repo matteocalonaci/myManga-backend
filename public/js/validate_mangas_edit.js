@@ -50,7 +50,7 @@ nameInput.addEventListener('input', (e) => {
 
     const minLength = 4;
     const maxLength = 500; // Puoi aumentare il limite massimo se necessario
-    const validCharacters = /^[\p{L}\p{N}() ,.\-\/"'’‘“”«»!?]*$/u;
+    const validCharacters = /^[\p{L}\p{N}()… :,.\-\/"'’‘“”«»!?]*$/u;
 
     if (inputValue.length < minLength) {
         showError(nameInput, `Il testo deve avere almeno ${minLength} caratteri.`);
@@ -72,7 +72,7 @@ inputField.addEventListener('input', (e) => {
 
     const minLength = 4;
     const maxLength = 1500;
-    const validCharacters = /^[\p{L}\p{N}() ,.\-\/"'’‘“”«»!?]*$/u;
+    const validCharacters = /^[\p{L}\p{N}(): …,.\-\/"'’‘“”«»!?]*$/u;
 
     if (inputValue.length < minLength) {
         showError(inputField, `Errore: Inserisci almeno ${minLength} caratteri.`);

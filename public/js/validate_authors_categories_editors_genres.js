@@ -24,7 +24,7 @@ nameInput.addEventListener('input', (e) => {
 
     const minLength = 4;
     const maxLength = 255; // Limite massimo per il nome dell'autore
-    const validCharacters = /^[\p{L}\p{N}() ,.\-\/"'’‘“”«»!?]*$/u;
+    const validCharacters = /^[\p{L}\p{N}()… :,.\-\/"'’‘“”«»!?]*$/u;
 
     let isValid = true; // Variabile per tenere traccia della validità
 

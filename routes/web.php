@@ -41,6 +41,8 @@ Route::middleware(['auth'])
         Route::get('/search-categories', [CategoryController::class, 'searchCategories']);
         Route::get('/search-genres', [GenreController::class, 'searchGenres']);
         Route::get('/search-editors', [EditorController::class, 'searchEditors']);
+        Route::get('/search-orders', [OrderController::class, 'searchEditors']);
+
     });
 
 // Includi auth.php dopo aver disabilitato la registrazione

@@ -13,13 +13,20 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     public function searchOrders(Request $request)
+     {
+         $searchTerm = $request->get('q');
+         $authors = Order::where('client_name', 'LIKE', "%{$searchTerm}%")->get();
+
+         return response()->json($authors);
+     }
     public function index(Request $request)
     {
         $query = Order::with('mangas'); // Carica i manga associati
 
         if ($request->has('search') && $request->search != '') {
-            $query->where('client_name', 'like', '%' . $request->search . '%')
-                  ->orWhere('client_email', 'like', '%' . $request->search . '%');
+            $query->where('client_name', 'like', '%' . $request->search . '%');
         }
 
         $orders = $query->paginate(5);
@@ -59,7 +66,7 @@ class OrderController extends Controller
             $order->mangas()->attach($manga->id, ['quantity' => $faker->numberBetween(1, 3)]);
         }
 
-        return redirect()->route('orders.index')->with('success', 'Ordine creato con successo!');
+        return redirect()->route('admin.orders.index')->with('success', 'Ordine creato con successo!');
     }
 
     /**
@@ -67,12 +74,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        $mangas = $order->mangas()->withPivot('quantity')->get();
 
-        return view('admin.orders.show', [
-            'order' => $order,
-            'mangas' => $order->mangas,
-        ]);
     }
 
     /**
@@ -80,7 +82,12 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
+        // Rimuovi le associazioni dalla tabella pivot
+        $order->mangas()->detach();
+
+        // Ora elimina l'ordine
         $order->delete();
+
         return redirect()->route('admin.orders.index')->with('success', 'Order deleted successfully!');
     }
 }
