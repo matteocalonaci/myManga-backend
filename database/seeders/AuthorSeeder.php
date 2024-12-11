@@ -59,7 +59,9 @@ class AuthorSeeder extends Seeder
         "Tatsuya Endō",
         "Yoshiaki Kawajiri",
         "Ken Akamatsu",
-        "Masami Kurumada"
+        "Masami Kurumada",
+        "Kouji Miura",
+        "Tatsuki Fujimoto",
     ];
 
         foreach ($authors as $authorName) {

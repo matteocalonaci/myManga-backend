@@ -1511,6 +1511,441 @@ class MangaSeeder extends Seeder
 
             ],
 
+            // BLUE BOX
+            [
+                'title' => 'Blue Box 1',
+                'author_id' => 47, // Autore del manga
+                'description' => "LA COMMEDIA ROMANTICO-SPORTIVA CHE HA RICONQUISTATO I LETTORI GIAPPONESI!
+
+Lo studente delle medie Taiki Inomata si allena nel club di badminton della Eimei, una scuola con un importante programma sportivo. È innamorato della senpai Chinatsu Kano, una ragazza che si allena ogni mattina presto in palestra e fa parte del club di basket femminile dello stesso istituto. Chinatsu è l’astro nascente della sua squadra e il divario tra lei e Taiki è così grande che è improbabile che i suoi sentimenti siano ricambiati. Tuttavia, per uno strano scherzo del destino, la ragazza inizia a vivere a casa di Taiki. I due adolescenti condividono lo stesso sogno di partecipare alle Nazionali e intendono impegnarsi duramente per riuscire a raggiungere il loro obiettivo. Taiki, allora, decide di allenarsi tutti i giorni, avvicinandosi sempre più alla sua nuova coinquilina, con cui vorrebbe costruire una vera e propria relazione...",
+                'cover_image' => 'https://mangayo.it/21599-large_default/blue-box-1.jpg',
+                'volume' => 1,
+                'price' => 5.90, // Prezzo in formato decimal
+                'availability' => true, // Disponibilità (true o false)
+                'in_progress' => true, // Disponibilità (true o false)
+                'year' => '2021',
+                'genre' => [3, 10, 14, 27],
+                'category_id' => 12,
+                'editor_id' => 2
+            ],
+
+            [
+                'title' => 'Blue Box 2',
+                'author_id' => 47,
+                'description' => "LA COMMEDIA ROMANTICO-SPORTIVA CHE HA RICONQUISTATO I LETTORI GIAPPONESI!
+
+Lo studente delle medie Taiki Inomata si allena nel club di badminton della Eimei, una scuola con un importante programma sportivo. È innamorato della senpai Chinatsu Kano, una ragazza che si allena ogni mattina presto in palestra e fa parte del club di basket femminile dello stesso istituto. Chinatsu è l’astro nascente della sua squadra e il divario tra lei e Taiki è così grande che è improbabile che i suoi sentimenti siano ricambiati. Tuttavia, per uno strano scherzo del destino, la ragazza inizia a vivere a casa di Taiki. I due adolescenti condividono lo stesso sogno di partecipare alle Nazionali e intendono impegnarsi duramente per riuscire a raggiungere il loro obiettivo. Taiki, allora, decide di allenarsi tutti i giorni, avvicinandosi sempre più alla sua nuova coinquilina, con cui vorrebbe costruire una vera e propria relazione...",
+                'cover_image' => 'https://mangayo.it/22306-large_default/blue-box-2.jpg',
+                'volume' => 2,
+                'price' => 5.90,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2021',
+                'genre' => [3, 10, 14, 27],
+                'category_id' => 12,
+                'editor_id' => 2
+            ],
+            [
+                'title' => 'Blue Box 3',
+                'author_id' => 47,
+                'description' => "LA COMMEDIA ROMANTICO-SPORTIVA CHE HA RICONQUISTATO I LETTORI GIAPPONESI!
+
+Lo studente delle medie Taiki Inomata si allena nel club di badminton della Eimei, una scuola con un importante programma sportivo. È innamorato della senpai Chinatsu Kano, una ragazza che si allena ogni mattina presto in palestra e fa parte del club di basket femminile dello stesso istituto. Chinatsu è l’astro nascente della sua squadra e il divario tra lei e Taiki è così grande che è improbabile che i suoi sentimenti siano ricambiati. Tuttavia, per uno strano scherzo del destino, la ragazza inizia a vivere a casa di Taiki. I due adolescenti condividono lo stesso sogno di partecipare alle Nazionali e intendono impegnarsi duramente per riuscire a raggiungere il loro obiettivo. Taiki, allora, decide di allenarsi tutti i giorni, avvicinandosi sempre più alla sua nuova coinquilina, con cui vorrebbe costruire una vera e propria relazione...",
+                'cover_image' => 'https://mangayo.it/23929-large_default/blue-box-3.jpg',
+                'volume' => 3,
+                'price' => 5.90,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2021',
+                'genre' => [3, 10, 14, 27],
+                'category_id' => 12,
+                'editor_id' => 2
+            ],
+            [
+                'title' => 'Blue Box 4',
+                'author_id' => 47,
+                'description' => "LA COMMEDIA ROMANTICO-SPORTIVA CHE HA RICONQUISTATO I LETTORI GIAPPONESI!
+
+Lo studente delle medie Taiki Inomata si allena nel club di badminton della Eimei, una scuola con un importante programma sportivo. È innamorato della senpai Chinatsu Kano, una ragazza che si allena ogni mattina presto in palestra e fa parte del club di basket femminile dello stesso istituto. Chinatsu è l’astro nascente della sua squadra e il divario tra lei e Taiki è così grande che è improbabile che i suoi sentimenti siano ricambiati. Tuttavia, per uno strano scherzo del destino, la ragazza inizia a vivere a casa di Taiki. I due adolescenti condividono lo stesso sogno di partecipare alle Nazionali e intendono impegnarsi duramente per riuscire a raggiungere il loro obiettivo. Taiki, allora, decide di allenarsi tutti i giorni, avvicinandosi sempre più alla sua nuova coinquilina, con cui vorrebbe costruire una vera e propria relazione...",
+                'cover_image' => 'https://mangayo.it/26270-large_default/blue-box-4.jpg',
+                'volume' => 4,
+                'price' => 5.90,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2021',
+                'genre' => [3, 10, 14, 27],
+                'category_id' => 12,
+                'editor_id' => 2
+            ],
+            [
+                'title' => 'Blue Box 5',
+                'author_id' => 47,
+                'description' => "LA COMMEDIA ROMANTICO-SPORTIVA CHE HA RICONQUISTATO I LETTORI GIAPPONESI!
+
+Lo studente delle medie Taiki Inomata si allena nel club di badminton della Eimei, una scuola con un importante programma sportivo. È innamorato della senpai Chinatsu Kano, una ragazza che si allena ogni mattina presto in palestra e fa parte del club di basket femminile dello stesso istituto. Chinatsu è l’astro nascente della sua squadra e il divario tra lei e Taiki è così grande che è improbabile che i suoi sentimenti siano ricambiati. Tuttavia, per uno strano scherzo del destino, la ragazza inizia a vivere a casa di Taiki. I due adolescenti condividono lo stesso sogno di partecipare alle Nazionali e intendono impegnarsi duramente per riuscire a raggiungere il loro obiettivo. Taiki, allora, decide di allenarsi tutti i giorni, avvicinandosi sempre più alla sua nuova coinquilina, con cui vorrebbe costruire una vera e propria relazione...",
+                'cover_image' => 'https://mangayo.it/28877-large_default/blue-box-5.jpg',
+                'volume' => 5,
+                'price' => 5.90,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2021',
+                'genre' => [3, 10, 14, 27],
+                'category_id' => 12,
+                'editor_id' => 2
+            ],
+            [
+                'title' => 'Blue Box 6',
+                'author_id' => 47,
+                'description' => "LA COMMEDIA ROMANTICO-SPORTIVA CHE HA RICONQUISTATO I LETTORI GIAPPONESI!
+
+Lo studente delle medie Taiki Inomata si allena nel club di badminton della Eimei, una scuola con un importante programma sportivo. È innamorato della senpai Chinatsu Kano, una ragazza che si allena ogni mattina presto in palestra e fa parte del club di basket femminile dello stesso istituto. Chinatsu è l’astro nascente della sua squadra e il divario tra lei e Taiki è così grande che è improbabile che i suoi sentimenti siano ricambiati. Tuttavia, per uno strano scherzo del destino, la ragazza inizia a vivere a casa di Taiki. I due adolescenti condividono lo stesso sogno di partecipare alle Nazionali e intendono impegnarsi duramente per riuscire a raggiungere il loro obiettivo. Taiki, allora, decide di allenarsi tutti i giorni, avvicinandosi sempre più alla sua nuova coinquilina, con cui vorrebbe costruire una vera e propria relazione...",
+                'cover_image' => 'https://mangayo.it/30973-large_default/blue-box-6.jpg',
+                'volume' => 6,
+                'price' => 5.90,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2021',
+                'genre' => [3, 10, 14, 27],
+                'category_id' => 12,
+                'editor_id' => 2
+            ],
+            [
+                'title' => 'Blue Box 7',
+                'author_id' => 47,
+                'description' => "LA COMMEDIA ROMANTICO-SPORTIVA CHE HA RICONQUISTATO I LETTORI GIAPPONESI!
+
+Lo studente delle medie Taiki Inomata si allena nel club di badminton della Eimei, una scuola con un importante programma sportivo. È innamorato della senpai Chinatsu Kano, una ragazza che si allena ogni mattina presto in palestra e fa parte del club di basket femminile dello stesso istituto. Chinatsu è l’astro nascente della sua squadra e il divario tra lei e Taiki è così grande che è improbabile che i suoi sentimenti siano ricambiati. Tuttavia, per uno strano scherzo del destino, la ragazza inizia a vivere a casa di Taiki. I due adolescenti condividono lo stesso sogno di partecipare alle Nazionali e intendono impegnarsi duramente per riuscire a raggiungere il loro obiettivo. Taiki, allora, decide di allenarsi tutti i giorni, avvicinandosi sempre più alla sua nuova coinquilina, con cui vorrebbe costruire una vera e propria relazione...",
+                'cover_image' => 'https://mangayo.it/32564-large_default/blue-box-7.jpg',
+                'volume' => 7,
+                'price' => 5.90,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2021',
+                'genre' => [3, 10, 14 , 27],
+                'category_id' => 12,
+                'editor_id' => 2
+            ],
+            [
+                'title' => 'Blue Box 8',
+                'author_id' => 47,
+                'description' => "LA COMMEDIA ROMANTICO-SPORTIVA CHE HA RICONQUISTATO I LETTORI GIAPPONESI!
+
+Lo studente delle medie Taiki Inomata si allena nel club di badminton della Eimei, una scuola con un importante programma sportivo. È innamorato della senpai Chinatsu Kano, una ragazza che si allena ogni mattina presto in palestra e fa parte del club di basket femminile dello stesso istituto. Chinatsu è l’astro nascente della sua squadra e il divario tra lei e Taiki è così grande che è improbabile che i suoi sentimenti siano ricambiati. Tuttavia, per uno strano scherzo del destino, la ragazza inizia a vivere a casa di Taiki. I due adolescenti condividono lo stesso sogno di partecipare alle Nazionali e intendono impegnarsi duramente per riuscire a raggiungere il loro obiettivo. Taiki, allora, decide di allenarsi tutti i giorni, avvicinandosi sempre più alla sua nuova coinquilina, con cui vorrebbe costruire una vera e propria relazione...",
+                'cover_image' => 'https://mangayo.it/34540-large_default/blue-box-8.jpg',
+                'volume' => 8,
+                'price' => 5.90,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2021',
+                'genre' => [3, 10, 14, 27],
+                'category_id' => 12,
+                'editor_id' => 2
+            ],
+            [
+                'title' => 'Blue Box 9',
+                'author_id' => 47,
+                'description' => "LA COMMEDIA ROMANTICO-SPORTIVA CHE HA RICONQUISTATO I LETTORI GIAPPONESI!
+
+Lo studente delle medie Taiki Inomata si allena nel club di badminton della Eimei, una scuola con un importante programma sportivo. È innamorato della senpai Chinatsu Kano, una ragazza che si allena ogni mattina presto in palestra e fa parte del club di basket femminile dello stesso istituto. Chinatsu è l’astro nascente della sua squadra e il divario tra lei e Taiki è così grande che è improbabile che i suoi sentimenti siano ricambiati. Tuttavia, per uno strano scherzo del destino, la ragazza inizia a vivere a casa di Taiki. I due adolescenti condividono lo stesso sogno di partecipare alle Nazionali e intendono impegnarsi duramente per riuscire a raggiungere il loro obiettivo. Taiki, allora, decide di allenarsi tutti i giorni, avvicinandosi sempre più alla sua nuova coinquilina, con cui vorrebbe costruire una vera e propria relazione...",
+                'cover_image' => 'https://mangayo.it/37054-large_default/blue-box-9.jpg',
+                'volume' => 9,
+                'price' => 5.90,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2021',
+                'genre' => [3, 10, 14, 27],
+                'category_id' => 12,
+                'editor_id' => 2
+            ],
+            [
+                'title' => 'Blue Box 10',
+                'author_id' => 47,
+                'description' => "LA COMMEDIA ROMANTICO-SPORTIVA CHE HA RICONQUISTATO I LETTORI GIAPPONESI!
+
+Lo studente delle medie Taiki Inomata si allena nel club di badminton della Eimei, una scuola con un importante programma sportivo. È innamorato della senpai Chinatsu Kano, una ragazza che si allena ogni mattina presto in palestra e fa parte del club di basket femminile dello stesso istituto. Chinatsu è l’astro nascente della sua squadra e il divario tra lei e Taiki è così grande che è improbabile che i suoi sentimenti siano ricambiati. Tuttavia, per uno strano scherzo del destino, la ragazza inizia a vivere a casa di Taiki. I due adolescenti condividono lo stesso sogno di partecipare alle Nazionali e intendono impegnarsi duramente per riuscire a raggiungere il loro obiettivo. Taiki, allora, decide di allenarsi tutti i giorni, avvicinandosi sempre più alla sua nuova coinquilina, con cui vorrebbe costruire una vera e propria relazione...",
+                'cover_image' => 'https://mangayo.it/40305-large_default/blue-box-10.jpg',
+                'volume' => 10,
+                'price' => 5.90,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2021',
+                'genre' => [3, 10, 14, 27],
+                'category_id' => 12,
+                'editor_id' => 2
+            ],
+            [
+                'title' => 'Blue Box 11',
+                'author_id' => 47,
+                'description' => "LA COMMEDIA ROMANTICO-SPORTIVA CHE HA RICONQUISTATO I LETTORI GIAPPONESI!
+
+Lo studente delle medie Taiki Inomata si allena nel club di badminton della Eimei, una scuola con un importante programma sportivo. È innamorato della senpai Chinatsu Kano, una ragazza che si allena ogni mattina presto in palestra e fa parte del club di basket femminile dello stesso istituto. Chinatsu è l’astro nascente della sua squadra e il divario tra lei e Taiki è così grande che è improbabile che i suoi sentimenti siano ricambiati. Tuttavia, per uno strano scherzo del destino, la ragazza inizia a vivere a casa di Taiki. I due adolescenti condividono lo stesso sogno di partecipare alle Nazionali e intendono impegnarsi duramente per riuscire a raggiungere il loro obiettivo. Taiki, allora, decide di allenarsi tutti i giorni, avvicinandosi sempre più alla sua nuova coinquilina, con cui vorrebbe costruire una vera e propria relazione...",
+                'cover_image' => 'https://mangayo.it/42746-large_default/blue-box-11.jpg',
+                'volume' => 11,
+                'price' => 5.90,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2021',
+                'genre' => [3, 10, 14, 27],
+                'category_id' => 12,
+                'editor_id' => 2
+            ],
+
+            //CHAINSAW MAN
+
+            [
+                'title' => 'Chainsaw Man 1',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/150-large_default/chainsaw-man-1.jpg',
+                'volume' => 1,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+
+            [
+                'title' => 'Chainsaw Man 2',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/10545-large_default/chainsaw-man-2.jpg',
+                'volume' => 2,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 3',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/11217-large_default/chainsaw-man-3.jpg',
+                'volume' => 3,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 4',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/19901-large_default/chainsaw-man-4.jpg',
+                'volume' => 4,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 5',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/3648-large_default/chainsaw-man-5.jpg',
+                'volume' => 5,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 6',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/4813-large_default/chainsaw-man-6.jpg',
+                'volume' => 6,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 7',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/6682-large_default/chainsaw-man-7.jpg',
+                'volume' => 7,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 8',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/7931-large_default/chainsaw-man-8-ristampa.jpg',
+                'volume' => 8,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 9',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/9811-large_default/chainsaw-man-9.jpg',
+                'volume' => 9,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 10',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/11083-large_default/chainsaw-man-10.jpg',
+                'volume' => 10,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 11',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-m otosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/13182-large_default/chainsaw-man-11.jpg',
+                'volume' => 11,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 12',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/23785-large_default/chainsaw-man-12.jpg',
+                'volume' => 12,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 13',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/26900-large_default/chainsaw-man-13.jpg',
+                'volume' => 13,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 14',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/30280-large_default/chainsaw-man-14.jpg',
+                'volume' => 14,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 15',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/32964-large_default/chainsaw-man-15.jpg',
+                'volume' => 15,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 16',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/36487-large_default/chainsaw-man-16.jpg',
+                'volume' => 16,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 17',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/40611-large_default/chainsaw-man-17.jpg',
+                'volume' => 17,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ],
+            [
+                'title' => 'Chainsaw Man 18',
+                'author_id' => 48,
+                'description' => "I miracoli a volte sono annunciati dal rombo assordante di una motosega. Senza famiglia, senza futuro, devil hunter per necessità. L'unico amico di Denji è il cane-motosega Pochita, un demone che, davanti a un'altra crudele beffa del fato, cambierà per sempre la vita del suo padrone...",
+                'cover_image' => 'https://mangayo.it/42871-large_default/chainsaw-man-18.jpg',
+                'volume' => 18,
+                'price' => 5.50,
+                'availability' => true,
+                'in_progress' => true,
+                'year' => '2018',
+                'genre' => [1, 5, 6],
+                'category_id' => 1,
+                'editor_id' => 3
+            ]
+
 
 
         ];

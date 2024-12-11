@@ -39,7 +39,8 @@ class GenreSeeder extends Seeder
             'Seinen',
             'Kodomo',
             'Musica',
-            'Psicologico'
+            'Psicologico',
+            'Romantico'
         ];
 
         foreach ($genres as $genreName) {
