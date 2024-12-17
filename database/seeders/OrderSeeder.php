@@ -16,16 +16,26 @@ class OrderSeeder extends Seeder
      */
     public function run(Faker $faker) {
         for ($i = 0; $i < 3; $i++) {
+            // Creazione di un nuovo ordine
             $order = Order::create([
-                'client_name' => $faker->name,
-                'client_address' => $faker->address,
-                'status' => $faker->randomElement(['in attesa', 'in lavorazione', 'spedito', 'consegnato', 'annullato']),
-                'order_date' => $faker->dateTimeThisYear(),
-                'total_price' => $faker->randomFloat(2, 10, 500),
+                'user_name' => $faker->name,
+                'user_surname' => $faker->lastName,
+                'user_email' => $faker->email,
+                'user_phone' => $faker->phoneNumber,
+                'shipping_address' => $faker->address,
+                'shipping_city' => $faker->city,
+                'shipping_state' => $faker->state,
+                'shipping_postal_code' => $faker->postcode,
+                'shipping_method' => $faker->randomElement(['Standard', 'Express']),
+                'payment_method_nonce' => 'fake-nonce', // Valore fittizio
+                'amount' => $faker->randomFloat(2, 10, 500),
+                'transaction_id' => 'fake-transaction-id', // Valore fittizio
             ]);
 
+            // Seleziona un numero casuale di manga da associare all'ordine
             $mangas = Manga::inRandomOrder()->take(rand(1, 10))->get();
             foreach ($mangas as $manga) {
+                // Associa il manga all'ordine con la quantità
                 $order->mangas()->attach($manga->id, ['quantity' => $faker->numberBetween(1, 3)]);
             }
         }

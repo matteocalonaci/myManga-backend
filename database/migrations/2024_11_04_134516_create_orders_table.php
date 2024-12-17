@@ -13,12 +13,18 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('client_name');
-            $table->string('client_address');
-            $table->decimal('total_price', 8, 2);
-            $table->string('status');
-            $table->dateTime('order_date');
-
+            $table->string('user_name');
+            $table->string('user_surname');
+            $table->string('user_email');
+            $table->string('user_phone');
+            $table->string('shipping_address');
+            $table->string('shipping_city');
+            $table->string('shipping_state');
+            $table->string('shipping_postal_code');
+            $table->string('shipping_method');
+            $table->string('payment_method_nonce');
+            $table->decimal('amount', 10, 2);
+            $table->string('transaction_id')->nullable();
             $table->timestamps();
         });
     }

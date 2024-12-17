@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\MangaController;
-use App\Models\Manga;
+use App\Http\Controllers\Api\OrderController; // Importa il tuo OrderController
+use App\Http\Controllers\Api\BraintreeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Rotta per ottenere l'utente autenticato
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -23,3 +25,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Definisci le rotte API per i manga
 Route::get('/mangas', [MangaController::class, 'index']);
 Route::get('/mangas/{slug}', [MangaController::class, 'show']);
+
+// Rotte per Braintree
+Route::get('/braintree/token', [BraintreeController::class, 'getToken']);
+Route::post('/braintree/checkout', [BraintreeController::class, 'checkout']);// Rotte per gli ordini
+Route::post('/orders', [OrderController::class, 'createOrder'])->middleware('auth:sanctum'); // Aggiungi middleware di autenticazione
+Route::get('/orders/{id}', [OrderController::class, 'getOrder'])->middleware('auth:sanctum'); // Aggiungi middleware di autenticazione
