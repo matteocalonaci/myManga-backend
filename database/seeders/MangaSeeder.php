@@ -1267,7 +1267,7 @@ class MangaSeeder extends Seeder
                 'author_id' => 1, // Autore del manga
                 'description' => "Dentro a una struttura dotata di un'area verde e completamente cinta da mura sono ospitati dei ragazzini. Durante una verifica, Tokio riceve un fugace messaggio che recita: 'Vorresti andare all'esterno dell'esterno?', e da quel momento comincia a chiedersi come sia quel mondo sconosciuto che inizia appena oltre i confini della struttura. Dall'altra parte, fuori, Maru e Kiruko, impegnati in una quotidiana lotta per la sopravvivenza in ciò che resta del Giappone, sono alla ricerca del 'paradiso'. Tokio e Maru sono identici nell'aspetto, eppure sembrano non conoscersi affatto. Quale sarà il loro legame? I loro destini saranno destinati a incrociarsi? E cosa nasconde l'avvenente ma mascolina Kiruko?",
 
-                'cover_image' => 'https://mangayo.it/40607-large_default/blue-lock-26.jpg',
+                'cover_image' => 'https://mangayo.it/650-large_default/heavenly-delusion-1.jpg',
                 'volume' => 1,
                 'price' => 7.50, // Prezzo in formato decimal
                 'availability' => false, // Disponibilità (true o false)

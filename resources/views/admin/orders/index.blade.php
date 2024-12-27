@@ -34,10 +34,10 @@
                     <tbody id="orderTableBody">
                         @foreach ($orders as $order)
                             <tr>
-                                <td data-label="Nome Cliente">{{ $order->client_name }}</td>
-                                <td data-label="Indirizzo Consegna">{{ $order->client_address }}</td>
-                                <td data-label="Data Ordine">{{ $order->order_date }}</td>
-                                <td data-label="Totale">€{{ $order->total_price }}</td>
+                                <td data-label="Nome Cliente">{{ $order->user_name }}</td>
+                                <td data-label="Indirizzo Consegna">{{ $order->shipping_address }}</td>
+                                <td data-label="Data Ordine">{{ $order->created_at->format('d/m/Y H:i') }}</td>
+                                <td data-label="Totale">€{{ number_format($order->amount, 2) }}</td>
                                 <td data-label="Manga">
                                     <ul class="list-unstyled">
                                      @foreach ($order->mangas as $manga)
@@ -46,14 +46,14 @@
                                     </ul>
                                 </td>
 
-                                <td data-label="Consegna">{{ $order->status }}</td>
+                                <td data-label="Consegna">{{ $order->shipping_method }}</td>
 
                                 <td data-label="Azioni">
                                     <div class="d-flex flex-column flex-sm-row justify-content-between">
                                         <form action="{{ route('admin.orders.destroy', $order->id) }}" method="POST" class="flex-grow-1"
                                             onsubmit="event.preventDefault(); Swal.fire({
                                                 title: 'Elimina l\'ordine?',
-                                                text: 'Sei sicuro di eliminare l\'ordine di {{ $order->client_name }}?',
+                                                text: 'Sei sicuro di eliminare l\'ordine di {{ $order->user_name }}?',
                                                 icon: 'warning',
                                                 showCancelButton: true,
                                                 confirmButtonText: 'Elimina',
@@ -78,7 +78,7 @@
                     <div class="px-3 px-md-5">
                         Mostra
                         <strong>{{ $orders->firstItem() }}</strong> a
-                        <strong>{{ $orders->lastItem() }}</ strong> di
+                        <strong>{{ $orders->lastItem() }}</strong> di
                         <strong>{{ $orders->total() }}</strong> risultati
                     </div>
                     <div class="mt-2 mt-md-0">
@@ -101,7 +101,6 @@
         margin: 0;
         overflow-x: hidden;
     }
-
 
     .container {
         padding: 0;
@@ -139,7 +138,7 @@
 
         .table-sm tr {
             display: block;
-            margin-bottom: 1.5rem; /
+            margin-bottom: 1.5rem;
             border-bottom: 0.01rem solid #ccc;
         }
 

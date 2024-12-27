@@ -26,7 +26,7 @@ class OrderSeeder extends Seeder
                 'shipping_city' => $faker->city,
                 'shipping_state' => $faker->state,
                 'shipping_postal_code' => $faker->postcode,
-                'shipping_method' => $faker->randomElement(['Standard', 'Express']),
+                'shipping_method' => $faker->randomElement(['in lavorazione', 'spediata', 'consegnata']),
                 'payment_method_nonce' => 'fake-nonce', // Valore fittizio
                 'amount' => $faker->randomFloat(2, 10, 500),
                 'transaction_id' => 'fake-transaction-id', // Valore fittizio
